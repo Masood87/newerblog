@@ -23,5 +23,5 @@ Fit a linear model to estimate the relationship between weight and mpg, and tidy
 ```{r message=FALSE, warning=FALSE}
 library(broom)
 library(dplyr)
-# tidy(lm(mpg ~ wt, data = mtcars))
+tidy(lm(mpg ~ wt, data = mtcars))
 ```

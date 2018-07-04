@@ -19,7 +19,7 @@
       <guid>/2018/06/hypothesis-testing-with-r/</guid>
       <description>A Meaningful Relationship There seems to be a relatinship between weight (wt) and mileage (mpg) from the mtcars based on observing them on a scatter plot–perhaps a negative one.
 library(ggplot2) ggplot(mtcars, aes(wt, mpg)) + geom_point() Fit a linear model to estimate the relationship between weight and mpg, and tidy the output. Looking at the statistics and p-value, I can reject the null hypothesis (no relationship).
-library(broom) library(dplyr) # tidy(lm(mpg ~ wt, data = mtcars))  </description>
+library(broom) library(dplyr) tidy(lm(mpg ~ wt, data = mtcars)) ## term estimate std.</description>
     </item>
     
     <item>

@@ -8,7 +8,7 @@
 <meta property="og:title" content="Hypothesis testing with R" />
 <meta property="og:description" content="A Meaningful Relationship There seems to be a relatinship between weight (wt) and mileage (mpg) from the mtcars based on observing them on a scatter plot–perhaps a negative one.
 library(ggplot2) ggplot(mtcars, aes(wt, mpg)) &#43; geom_point() Fit a linear model to estimate the relationship between weight and mpg, and tidy the output. Looking at the statistics and p-value, I can reject the null hypothesis (no relationship).
-library(broom) library(dplyr) # tidy(lm(mpg ~ wt, data = mtcars))  " />
+library(broom) library(dplyr) tidy(lm(mpg ~ wt, data = mtcars)) ## term estimate std." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2018/06/hypothesis-testing-with-r/" />
 
@@ -32,7 +32,7 @@ library(broom) library(dplyr) # tidy(lm(mpg ~ wt, data = mtcars))  " />
 <meta name="twitter:title" content="Hypothesis testing with R"/>
 <meta name="twitter:description" content="A Meaningful Relationship There seems to be a relatinship between weight (wt) and mileage (mpg) from the mtcars based on observing them on a scatter plot–perhaps a negative one.
 library(ggplot2) ggplot(mtcars, aes(wt, mpg)) &#43; geom_point() Fit a linear model to estimate the relationship between weight and mpg, and tidy the output. Looking at the statistics and p-value, I can reject the null hypothesis (no relationship).
-library(broom) library(dplyr) # tidy(lm(mpg ~ wt, data = mtcars))  "/>
+library(broom) library(dplyr) tidy(lm(mpg ~ wt, data = mtcars)) ## term estimate std."/>
 
 
 
@@ -163,7 +163,10 @@ ggplot(mtcars, aes(wt, mpg)) + geom_point()</code></pre>
 <p>Fit a linear model to estimate the relationship between weight and mpg, and tidy the output. Looking at the statistics and p-value, I can reject the null hypothesis (no relationship).</p>
 <pre class="r"><code>library(broom)
 library(dplyr)
-# tidy(lm(mpg ~ wt, data = mtcars))</code></pre>
+tidy(lm(mpg ~ wt, data = mtcars))</code></pre>
+<pre><code>##          term  estimate std.error statistic      p.value
+## 1 (Intercept) 37.285126  1.877627 19.857575 8.241799e-19
+## 2          wt -5.344472  0.559101 -9.559044 1.293959e-10</code></pre>
 </div>
 
 
