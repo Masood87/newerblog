@@ -27,3 +27,21 @@ You can also inspect the whole dataset as in a spreadsheet view using `View()`.
 ```{r eval=FALSE, message=FALSE, warning=FALSE}
 View(airquality)
 ```
+
+
+## Visualize missing values with visdat package
+
+Let's explore the **visdat** package that promises to provide an easy way to inspect `NA`'s for the whole dataset. If you haven't used it before, you have to install it and then load it.
+
+```{r}
+# install.packages("visdat")    #installs visdat package
+library(visdat)                 #loads visdat package
+```
+
+There are two functions in **visdat** package that we need to know: `vis_miss()` function that plots missing values in a dataset and `vis_dat()` function that plots class of variables in a dataset in addition to missing values. After loading the **visdat** package, both functions are available and they take a data.frame object as argument and returns a plot of that data.frame.
+
+Let's use **airquality** dataset with `vis_miss()` function to visualize missing values. This plots the columns in **airquality** data.frame vertically and observations horizontally, resembling the way data is stored. Black color represents missing values and grey color represents non-missing values. There is even percentages of missing vlaues with one decimal points for each column and an overall percentage in the legend, which I find extremely useful. Compared to `summary()`, this plot gives a lot more information.
+
+```{r message=FALSE, warning=FALSE}
+vis_miss(airquality)
+```

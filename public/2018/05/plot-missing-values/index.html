@@ -180,6 +180,17 @@ Masood Sadat
 <p>From the output of <code>summary()</code> function, we can see columns/variables <strong>Ozone</strong> has 36 missing values (<code>NA</code>’s) and column <strong>Solar.R</strong> has 7 missing values.</p>
 <p>You can also inspect the whole dataset as in a spreadsheet view using <code>View()</code>.</p>
 <pre class="r"><code>View(airquality)</code></pre>
+<div id="visualize-missing-values-with-visdat-package" class="section level2">
+<h2>Visualize missing values with visdat package</h2>
+<p>Let’s explore the <strong>visdat</strong> package that promises to provide an easy way to inspect <code>NA</code>’s for the whole dataset. If you haven’t used it before, you have to install it and then load it.</p>
+<pre class="r"><code># install.packages(&quot;visdat&quot;)    #installs visdat package
+library(visdat)                 #loads visdat package</code></pre>
+<pre><code>## Warning: package &#39;visdat&#39; was built under R version 3.2.5</code></pre>
+<p>There are two functions in <strong>visdat</strong> package that we need to know: <code>vis_miss()</code> function that plots missing values in a dataset and <code>vis_dat()</code> function that plots class of variables in a dataset in addition to missing values. After loading the <strong>visdat</strong> package, both functions are available and they take a data.frame object as argument and returns a plot of that data.frame.</p>
+<p>Let’s use <strong>airquality</strong> dataset with <code>vis_miss()</code> function to visualize missing values. This plots the columns in <strong>airquality</strong> data.frame vertically and observations horizontally, resembling the way data is stored. Black color represents missing values and grey color represents non-missing values. There is even percentages of missing vlaues with one decimal points for each column and an overall percentage in the legend, which I find extremely useful. Compared to <code>summary()</code>, this plot gives a lot more information.</p>
+<pre class="r"><code>vis_miss(airquality)</code></pre>
+<p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
 
 
     
