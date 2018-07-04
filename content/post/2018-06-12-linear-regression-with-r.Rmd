@@ -9,3 +9,14 @@ tags:
   - statistics
 ---
 
+
+# Estimating linear regression
+
+Before starting, I am going to load a number of utility libraries for this session.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(broom)
+library(plotly)
+```
+
