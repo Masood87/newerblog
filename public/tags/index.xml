@@ -21,6 +21,15 @@
     </item>
     
     <item>
+      <title>Eda</title>
+      <link>/tags/eda/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/eda/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Electricity</title>
       <link>/tags/electricity/</link>
       <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
@@ -30,11 +39,29 @@
     </item>
     
     <item>
+      <title>Function</title>
+      <link>/tags/function/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/function/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Git</title>
       <link>/tags/git/</link>
       <pubDate>Fri, 18 May 2018 00:00:00 +0000</pubDate>
       
       <guid>/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Visualization</title>
+      <link>/tags/visualization/</link>
+      <pubDate>Tue, 22 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/visualization/</guid>
       <description></description>
     </item>
     
