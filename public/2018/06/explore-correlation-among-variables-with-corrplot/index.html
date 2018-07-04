@@ -8,7 +8,7 @@
 <meta property="og:title" content="Explore Correlation Among Variables with Corrplot" />
 <meta property="og:description" content="Exploring relationship among variables in a data set is never easier with corrplot package and function of the same name. corrplot takes in a correlation matrix and returns a visual representation of that correlation matrix.
 Try it for yourself.
-Install and load corrplot package  install.packages(&quot;corrplot&quot;) library(corrplot) Estimate correlation between all variables of mtcars dataset using cor, and then plot the correlations using corrplot(). You have to specify a method, and there are quite a few of them–here I demonstrate two of them: square and number  mat &lt;- cor(mtcars) corrplot(mat, method = &quot;square&quot;) corrplot(mat, method = &quot;number&quot;) To explore more, see the help (?" />
+Install and load corrplot package  install.packages(&quot;corrplot&quot;) library(corrplot) Estimate correlation between all variables of mtcars dataset using cor, and then plot the correlations using corrplot(). You have to specify a method, and there are quite a few of them–here I demonstrate two of them: square and number  mat &lt;- cor(mtcars) corrplot(mat, method = &quot;square&quot;) # corrplot(mat, method = &quot;number&quot;) To explore more, see the help (?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2018/06/explore-correlation-among-variables-with-corrplot/" />
 
@@ -32,7 +32,7 @@ Install and load corrplot package  install.packages(&quot;corrplot&quot;) librar
 <meta name="twitter:title" content="Explore Correlation Among Variables with Corrplot"/>
 <meta name="twitter:description" content="Exploring relationship among variables in a data set is never easier with corrplot package and function of the same name. corrplot takes in a correlation matrix and returns a visual representation of that correlation matrix.
 Try it for yourself.
-Install and load corrplot package  install.packages(&quot;corrplot&quot;) library(corrplot) Estimate correlation between all variables of mtcars dataset using cor, and then plot the correlations using corrplot(). You have to specify a method, and there are quite a few of them–here I demonstrate two of them: square and number  mat &lt;- cor(mtcars) corrplot(mat, method = &quot;square&quot;) corrplot(mat, method = &quot;number&quot;) To explore more, see the help (?"/>
+Install and load corrplot package  install.packages(&quot;corrplot&quot;) library(corrplot) Estimate correlation between all variables of mtcars dataset using cor, and then plot the correlations using corrplot(). You have to specify a method, and there are quite a few of them–here I demonstrate two of them: square and number  mat &lt;- cor(mtcars) corrplot(mat, method = &quot;square&quot;) # corrplot(mat, method = &quot;number&quot;) To explore more, see the help (?"/>
 
 
 
@@ -167,8 +167,7 @@ library(corrplot)</code></pre>
 <pre class="r"><code>mat &lt;- cor(mtcars)
 corrplot(mat, method = &quot;square&quot;)</code></pre>
 <p><img src="/post/2018-06-14-explore-correlation-among-variables-with-corrplot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
-<pre class="r"><code>corrplot(mat, method = &quot;number&quot;)</code></pre>
-<p><img src="/post/2018-06-14-explore-correlation-among-variables-with-corrplot_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<pre class="r"><code># corrplot(mat, method = &quot;number&quot;)</code></pre>
 <p>To explore more, see the help (<code>?corrplot</code>) and visit the Introduction to corrplot Package post on <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">CRAN</a>.</p>
 
 
