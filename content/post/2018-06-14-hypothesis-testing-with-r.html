@@ -24,4 +24,14 @@ tidy(lm(mpg ~ wt, data = mtcars))</code></pre>
 <pre><code>##          term  estimate std.error statistic      p.value
 ## 1 (Intercept) 37.285126  1.877627 19.857575 8.241799e-19
 ## 2          wt -5.344472  0.559101 -9.559044 1.293959e-10</code></pre>
+<p>Normally, the above estimation would suffice to answer a hypothesis question. For education, let’s create a null (no relationship) distribution of slopes using <strong>infer</strong> package.</p>
+<pre class="r"><code># install.packages(&quot;infer&quot;)
+library(infer)
+perm_slopes &lt;- mtcars %&gt;%
+  specify(formula = mpg ~ wt) %&gt;% # specify the linear model
+  hypothesize(null = &quot;independence&quot;) %&gt;% # provide null hypothesis that two variables are independent
+  generate(reps = 1000, type = &quot;permute&quot;) %&gt;% # describe how to generate the sampling distribution
+  calculate(stat = &quot;slope&quot;) # calculate the statistic of interest
+
+obs_slope &lt;- tidy(lm(mpg ~ wt, data = mtcars)) %&gt;% .[2,2] # observed slope</code></pre>
 </div>

@@ -25,3 +25,17 @@ library(broom)
 library(dplyr)
 tidy(lm(mpg ~ wt, data = mtcars))
 ```
+
+Normally, the above estimation would suffice to answer a hypothesis question. For education, let's create a null (no relationship) distribution of slopes using **infer** package.
+
+```{r message=FALSE, warning=FALSE}
+# install.packages("infer")
+library(infer)
+perm_slopes <- mtcars %>%
+  specify(formula = mpg ~ wt) %>% # specify the linear model
+  hypothesize(null = "independence") %>% # provide null hypothesis that two variables are independent
+  generate(reps = 1000, type = "permute") %>% # describe how to generate the sampling distribution
+  calculate(stat = "slope") # calculate the statistic of interest
+
+obs_slope <- tidy(lm(mpg ~ wt, data = mtcars)) %>% .[2,2] # observed slope
+```
