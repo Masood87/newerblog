@@ -119,3 +119,34 @@ So, instead of `is.na()` if we use another test (e.g. airquality > 50) to create
   scale_x_discrete(position = "top") +
   theme(axis.text.x = element_text(angle = 90, hjust = 0))
 ```
+
+## Create a custom function to plot any condition
+
+Perhaps you would like to visualize every dataset you work with and different conditions. For exmaple, you might want to plot values above 100. In that case, you might be better off creating a function instead of typing all that code or even copy/pasting.
+
+I am going to create a function called `conditional_plot()` that will take a condition (e.g. **airquality > 100**) as an argument, and plots the values that satisfy the condition in one color, values that do not satisfy the condition in another color, and NA's in grey color.
+
+```{r message=FALSE, warning=FALSE}
+conditional_plot <- function(x){
+  {x} %>%
+    data.frame() %>% 
+    mutate(obs = 1:nrow(.)) %>% 
+    gather(var, condition_is, -obs) %>%
+    ggplot(aes(x = var, y = obs, fill = condition_is)) + geom_tile() + 
+    theme_bw() +
+    theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 0)) + 
+    labs(x = "Variables", y = "Observations") +
+    scale_x_discrete(position = "top")
+}
+conditional_plot(airquality>50)
+```
+
+**There are two things to note:**
+
+1. This `conditional_plot()` reorders the variables in alphabetical order. I will try to find a fix and update this post.
+2. The `conditional_plot()` will visualize the character/string columns as missing too. I will try to find a fix for this too and update this post.
+
+**More in the upcoming post...**
+
+
+

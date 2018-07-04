@@ -111,3 +111,27 @@ is.na(airquality) %&gt;%
   theme(axis.text.x = element_text(angle = 90, hjust = 0))</code></pre>
 <p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 </div>
+<div id="create-a-custom-function-to-plot-any-condition" class="section level2">
+<h2>Create a custom function to plot any condition</h2>
+<p>Perhaps you would like to visualize every dataset you work with and different conditions. For exmaple, you might want to plot values above 100. In that case, you might be better off creating a function instead of typing all that code or even copy/pasting.</p>
+<p>I am going to create a function called <code>conditional_plot()</code> that will take a condition (e.g. <strong>airquality &gt; 100</strong>) as an argument, and plots the values that satisfy the condition in one color, values that do not satisfy the condition in another color, and NA’s in grey color.</p>
+<pre class="r"><code>conditional_plot &lt;- function(x){
+  {x} %&gt;%
+    data.frame() %&gt;% 
+    mutate(obs = 1:nrow(.)) %&gt;% 
+    gather(var, condition_is, -obs) %&gt;%
+    ggplot(aes(x = var, y = obs, fill = condition_is)) + geom_tile() + 
+    theme_bw() +
+    theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 0)) + 
+    labs(x = &quot;Variables&quot;, y = &quot;Observations&quot;) +
+    scale_x_discrete(position = &quot;top&quot;)
+}
+conditional_plot(airquality&gt;50)</code></pre>
+<p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p><strong>There are two things to note:</strong></p>
+<ol style="list-style-type: decimal">
+<li>This <code>conditional_plot()</code> reorders the variables in alphabetical order. I will try to find a fix and update this post.</li>
+<li>The <code>conditional_plot()</code> will visualize the character/string columns as missing too. I will try to find a fix for this too and update this post.</li>
+</ol>
+<p><strong>More in the upcoming post…</strong></p>
+</div>
