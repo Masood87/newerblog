@@ -59,3 +59,6 @@ The best way to visualize a simple linear regression is a scatter plot and a fit
 ```{r message=FALSE, warning=FALSE}
 ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point() + geom_smooth(method = "lm", se = F) + theme_bw()
 ```
+
+Visualizing multiple regression becomes more challenging, as each variable in the model has to have a dimension. Therefore, as it is not possible to visualize more than 3 dimensions, a model with two right-hand-side variables can be visualized at most. Here, I am plotting weight, mpg, and horsepower using an **plotly** package that creates interactive plots.
+

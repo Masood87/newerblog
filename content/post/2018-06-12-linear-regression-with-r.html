@@ -84,4 +84,5 @@ library(plotly)</code></pre>
 <p>The best way to visualize a simple linear regression is a scatter plot and a fitted regression line. For a simple linear regression, a 2-dimensional plot and a fitted line suffices. Here I use the <strong>ggplot2</strong>’s <code>ggplot()</code> function which is made available through the <strong>tidyverse</strong> package.</p>
 <pre class="r"><code>ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point() + geom_smooth(method = &quot;lm&quot;, se = F) + theme_bw()</code></pre>
 <p><img src="/post/2018-06-12-linear-regression-with-r_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>Visualizing multiple regression becomes more challenging, as each variable in the model has to have a dimension. Therefore, as it is not possible to visualize more than 3 dimensions, a model with two right-hand-side variables can be visualized at most. Here, I am plotting weight, mpg, and horsepower using an <strong>plotly</strong> package that creates interactive plots.</p>
 </div>
