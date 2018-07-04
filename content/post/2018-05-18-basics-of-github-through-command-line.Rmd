@@ -136,7 +136,7 @@ git status
 
 Here is a screen shot of the process. After `git add`, the status shows four files in green font. These files are changes to be _committed_.
 
-![](/post/Learn_to_git_files/git add.png){width=100%}
+![](~/Documents/GitHub/blog/static/post/Learn_to_git_files/git add.png){width=100%}
 
 # Commit changes in repository with `git commit`
 
