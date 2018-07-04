@@ -45,3 +45,9 @@ Let's use **airquality** dataset with `vis_miss()` function to visualize missing
 ```{r message=FALSE, warning=FALSE}
 vis_miss(airquality)
 ```
+
+Let's use `vis_dat()` function. This plot visualizes the class of each column of **airquality** dataset in addition to indicating missing values. However, percentages of missing values are not shown. 
+
+```{r message=FALSE, warning=FALSE}
+vis_dat(airquality)
+```

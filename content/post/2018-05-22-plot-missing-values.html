@@ -47,4 +47,7 @@ library(visdat)                 #loads visdat package</code></pre>
 <p>Let’s use <strong>airquality</strong> dataset with <code>vis_miss()</code> function to visualize missing values. This plots the columns in <strong>airquality</strong> data.frame vertically and observations horizontally, resembling the way data is stored. Black color represents missing values and grey color represents non-missing values. There is even percentages of missing vlaues with one decimal points for each column and an overall percentage in the legend, which I find extremely useful. Compared to <code>summary()</code>, this plot gives a lot more information.</p>
 <pre class="r"><code>vis_miss(airquality)</code></pre>
 <p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Let’s use <code>vis_dat()</code> function. This plot visualizes the class of each column of <strong>airquality</strong> dataset in addition to indicating missing values. However, percentages of missing values are not shown.</p>
+<pre class="r"><code>vis_dat(airquality)</code></pre>
+<p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
