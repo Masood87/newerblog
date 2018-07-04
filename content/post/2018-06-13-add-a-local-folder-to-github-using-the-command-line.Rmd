@@ -9,3 +9,7 @@ tags:
   - git
 ---
 
+Did you know you can upload almost anything on [**Github.com**](https://github.come)?
+
+Recently, I have started uploading many of my files on github, besides code. I do it because I am working on two different computers, one at work and one at home, and I think this is a great way to keep my work synchronized. I am not going to talk more about using github at this point--maybe I will have a dedicated post on that later. In this post, I want to show you how to add a folder on your local computer to github using command line. If you start a project with github from zero, that is easy--read this [post](/2018/05/18/basics-of-github-through-command-line/). Let's start by following these 8 steps:
+
