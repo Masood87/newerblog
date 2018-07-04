@@ -58,8 +58,8 @@ ggplot(mtcars, aes(drat, qsec)) + geom_point()
 Fitting a linear model to estimate the linear relationship between `drat` and `qsec`, I cannot reject the null hypothesis that there is a meaningful relationship between the two variables. Note the statistics and p-value values.
 
 ```{r}
-# tidy(lm(qsec ~ drat, data = mtcars))
-# obs_slope <- tidy(lm(qsec ~ drat, data = mtcars)) %>% .[2,2]
+tidy(lm(qsec ~ drat, data = mtcars))
+obs_slope <- tidy(lm(qsec ~ drat, data = mtcars)) %>% .[2,2]
 ```
 
 Let's estimate the null (no relationship) distribution using the **infer** package.

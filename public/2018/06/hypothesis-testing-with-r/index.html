@@ -188,8 +188,11 @@ obs_slope &lt;- tidy(lm(mpg ~ wt, data = mtcars)) %&gt;% .[2,2] # observed slope
 <pre class="r"><code>ggplot(mtcars, aes(drat, qsec)) + geom_point()</code></pre>
 <p><img src="/post/2018-06-14-hypothesis-testing-with-r_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Fitting a linear model to estimate the linear relationship between <code>drat</code> and <code>qsec</code>, I cannot reject the null hypothesis that there is a meaningful relationship between the two variables. Note the statistics and p-value values.</p>
-<pre class="r"><code># tidy(lm(qsec ~ drat, data = mtcars))
-# obs_slope &lt;- tidy(lm(qsec ~ drat, data = mtcars)) %&gt;% .[2,2]</code></pre>
+<pre class="r"><code>tidy(lm(qsec ~ drat, data = mtcars))</code></pre>
+<pre><code>##          term   estimate std.error statistic      p.value
+## 1 (Intercept) 16.7524663 2.2086713 7.5848617 1.855757e-08
+## 2        drat  0.3048143 0.6076358 0.5016398 6.195826e-01</code></pre>
+<pre class="r"><code>obs_slope &lt;- tidy(lm(qsec ~ drat, data = mtcars)) %&gt;% .[2,2]</code></pre>
 <p>Let’s estimate the null (no relationship) distribution using the <strong>infer</strong> package.</p>
 <pre class="r"><code># perm_slopes &lt;- mtcars %&gt;%
 #   specify(qsec ~ drat) %&gt;%
