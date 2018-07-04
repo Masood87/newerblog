@@ -9,3 +9,17 @@ tags:
   - EDA
 ---
 
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(corrplot)
+```
+
+Exploring relationship among variables in a data set is never easier with **corrplot** package and function of the same name. **corrplot** takes in a correlation matrix and returns a visual representation of that correlation matrix.
+
+Try it for yourself. 
+
+1. Install and load **corrplot** package
+
+```{r eval=FALSE}
+install.packages("corrplot")
+library(corrplot)
+```
