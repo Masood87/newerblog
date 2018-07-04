@@ -9,3 +9,11 @@ tags:
   - statistics
 ---
 
+## A Meaningful Relationship
+
+There seems to be a relatinship between weight (`wt`) and mileage (`mpg`) from the **mtcars** based on observing them on a scatter plot--perhaps a negative one.
+
+```{r message=FALSE, warning=FALSE}
+library(ggplot2)
+# ggplot(mtcars, aes(wt, mpg)) + geom_point()
+```
