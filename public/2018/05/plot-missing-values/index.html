@@ -229,6 +229,31 @@ is.na(airquality) %&gt;%
 <p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <p>The above code chunk is an example of a nested code that is simplied using pipe operators <strong>%&gt;%</strong> from <strong>magrittr</strong> package, which is made avaible by loading <strong>tidyverse</strong> package.</p>
 </div>
+<div id="visualize-any-other-values-with-ggplot2-package" class="section level2">
+<h2>Visualize any other values with ggplot2 package</h2>
+<p>What the above code chunk allows is the possibility of manipulating the code to produce plots that visualizes presence of another value. If you read the first line of the code, <code>is.na()</code> function tests the data.frame for missing values, and transforms the <strong>airquality</strong> dataset into a matrix of TRUE and FALSE (or 0 and 1), which later is supplied into the <code>ggplot()</code> function to create the plot.</p>
+<p>Let’s explore <code>is.na()</code> function separately. As you can observe, the result of <code>is.na(airquality)</code> is a matrix containing TRUE and FALSE.</p>
+<pre class="r"><code>is.na(airquality) %&gt;% 
+  head() # print only first rows of the matrix produced by is.na(airquality)</code></pre>
+<pre><code>##      Ozone Solar.R  Wind  Temp Month   Day
+## [1,] FALSE   FALSE FALSE FALSE FALSE FALSE
+## [2,] FALSE   FALSE FALSE FALSE FALSE FALSE
+## [3,] FALSE   FALSE FALSE FALSE FALSE FALSE
+## [4,] FALSE   FALSE FALSE FALSE FALSE FALSE
+## [5,]  TRUE    TRUE FALSE FALSE FALSE FALSE
+## [6,] FALSE    TRUE FALSE FALSE FALSE FALSE</code></pre>
+<p>So, instead of <code>is.na()</code> if we use another test (e.g. airquality &gt; 50) to create a matrix of TRUE and FALSE too. Let’s assume we are interested to know if <strong>airquality</strong> dataset has any values greater than 50. So we bring changes in the second line <code>{. &gt; 50}</code> and create <code>is_greater_than_50</code> instead of <code>is_missing</code> in the fifth and sixth lines. The resulting plot indicates missing values in grey color, <strong>&gt;50</strong> vaules with blue color, and the rest in red color. <code>ggplot()</code> has a lot of functions that allows you to customize this plot in almost any way in case you are interested.</p>
+<pre class="r"><code>{airquality &gt; 50} %&gt;%
+  data.frame() %&gt;%
+  mutate(obs = 1:nrow(.)) %&gt;%
+  gather(var, is_greater_than_50, -obs) %&gt;%
+  ggplot(aes(x = var, y = obs, fill = is_greater_than_50)) + geom_tile() + 
+  theme_bw() +
+  labs(x=&quot;Variables&quot;, y=&quot;Observations&quot;) +
+  scale_x_discrete(position = &quot;top&quot;) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 0))</code></pre>
+<p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+</div>
 
 
     

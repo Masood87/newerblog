@@ -94,3 +94,28 @@ is.na(airquality) %>%
 ```
 
 The above code chunk is an example of a nested code that is simplied using pipe operators **%>%** from **magrittr** package, which is made avaible by loading **tidyverse** package.
+
+## Visualize any other values with ggplot2 package
+
+What the above code chunk allows is the possibility of manipulating the code to produce plots that visualizes presence of another value. If you read the first line of the code, `is.na()` function tests the data.frame for missing values, and transforms the **airquality** dataset into a matrix of TRUE and FALSE (or 0 and 1), which later is supplied into the `ggplot()` function to create the plot.
+
+Let's explore `is.na()` function separately. As you can observe, the result of `is.na(airquality)` is a matrix containing TRUE and FALSE.
+
+```{r}
+is.na(airquality) %>% 
+  head() # print only first rows of the matrix produced by is.na(airquality)
+```
+
+So, instead of `is.na()` if we use another test (e.g. airquality > 50) to create a matrix of TRUE and FALSE too. Let's assume we are interested to know if **airquality** dataset has any values greater than 50. So we bring changes in the second line `{. > 50}` and create `is_greater_than_50` instead of `is_missing` in the fifth and sixth lines. The resulting plot indicates missing values in grey color, **>50** vaules with blue color, and the rest in red color. `ggplot()` has a lot of functions that allows you to customize this plot in almost any way in case you are interested.
+
+```{r message=FALSE, warning=FALSE}
+{airquality > 50} %>%
+  data.frame() %>%
+  mutate(obs = 1:nrow(.)) %>%
+  gather(var, is_greater_than_50, -obs) %>%
+  ggplot(aes(x = var, y = obs, fill = is_greater_than_50)) + geom_tile() + 
+  theme_bw() +
+  labs(x="Variables", y="Observations") +
+  scale_x_discrete(position = "top") +
+  theme(axis.text.x = element_text(angle = 90, hjust = 0))
+```
