@@ -33,3 +33,9 @@ It seems like heavier cars have lower mileage Next, I regress mpg on weight usin
 ```{r message=FALSE, warning=FALSE}
 lm(mpg ~ wt, data = mtcars)
 ```
+
+The output from `lm()` function quantifies a negative relationship between weight and mileage. The output however does not provide other useful information such as confidence interval and r-squared, which can be accessed if we feed the `lm` function into `summary()` function.
+
+```{r message=FALSE, warning=FALSE}
+summary(lm(mpg ~ wt, data = mtcars))
+```
