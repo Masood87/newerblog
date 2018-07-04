@@ -74,3 +74,9 @@ ggplot(df, aes(x = Provinces, y = `Percent Failed at Logic Test`, fill = `Provin
   # add horizontal lines that is average failure of provinces by monitoring indicator
   geom_hline(data = failure, aes(yintercept = mean_failure), col = "navy")
 ```
+
+_**No Relation b/w Monitoring Scores and Logic Tests**_ While having monitors in a province appeared to have a robust effect on the logic test outcomes, monitoring scores of the fieldwork training and fieldwork data collection does not appear to have a robust effect on the logic test outcomes. This is a counterintuitive finding. It was expected that better training and better fieldwork scores would translate into better quality data, which is not the case. There could be three plausable explanation for this finding. 
+
+1. The logic tests do not fully capture the data quality. 
+2. The third party monitor's assessment does not accurately capture the quality of the fieldwork. This could mean poor assessment, or assessments done by different monitors in different provinces are not comparable (e.g. different monitors would judge the same quality differently).
+3. The sample of monitored provinces is only 13, which is considered small. With small sample size, the amout of information we get is limited and this increases the uncertainty. Therefore, it is possible that we cannot observe meaningful relationship between monitoring scores and the logic test outcomes. Figure below illustrates the correlation between the indicators of interest. The figure shows that the _percent failed at logic test_ have an almost nonexistent relationship with the other two monitoring indicators.
