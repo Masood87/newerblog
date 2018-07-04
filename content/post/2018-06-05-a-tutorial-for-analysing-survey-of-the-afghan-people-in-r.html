@@ -25,3 +25,126 @@ library(survey)
 sap &lt;- load(&quot;sap.Rda&quot;)
 sap.w &lt;- svydesign(id = ~1, data = sap[!is.na(sap$MergeWgt10), ], weights = ~MergeWgt10) # simple random sampling</code></pre>
 </div>
+<div id="survey-analysis-with-r" class="section level2">
+<h2>2 Survey Analysis with R</h2>
+<p>I have broken down this post into (1) reading data, (2) tabulations and cross-tabulations, (3) descriptive statistics, (4) hypothesis testing, (5) inferential statistics.</p>
+<div id="reading-data" class="section level3">
+<h3>2.1 Reading Data</h3>
+<p>The survey data is made available in <strong>.Rda</strong> (R), <strong>.dta</strong> (Stata) and <strong>.sav</strong> (SPSS) file format. In this tutorial, we go over how to carry out some data manipulation and analysis that is used in the Survey report using R. Ideally if you are using R, you would download <strong>.Rda</strong> file format of the data, in which case you will use `` function to open it in R or <strong>RStudio</strong>.</p>
+<pre class="r"><code>load(file = &quot;file.Rda&quot;)</code></pre>
+<p>If you have the <strong>.dta</strong> (Stata) file format, there are <strong>haven</strong>, <strong>foreign</strong>, and <strong>readstata13</strong> packages that are available and I have used. I suggest to use <strong>readstata13</strong>, because it preserves the labelled variables as factors. Keeping the order becomes very important when you produce tables or graphs; otherwise, you will get categories sorted by alphabetical order, which is not desireable in this case.</p>
+<p>Let’s start by installing the <strong>readstata13</strong> pacakges, then attaching it.</p>
+<pre class="r"><code>install.packages(&quot;readstata13&quot;)
+library(readstata13)
+read.dta13(&quot;file.dta&quot;)</code></pre>
+<p>If you have the <strong>.sav</strong> (SPSS) file format, there are <strong>haven</strong> and <strong>foreign</strong> packages that I have used. As far as I know, both does the job just fine.</p>
+<pre class="r"><code>library(haven)
+read_spss(&quot;file.sav&quot;)</code></pre>
+</div>
+<div id="tabulations-and-cross-tabulations" class="section level3">
+<h3>2.2 Tabulations and Cross-tabulations</h3>
+<p>Preparing a table of frequencies or percentages, which is know as tabulation, is the most widely used method in the survey report given the categorical nature of most of the survey questions. For example, we look at the percentage of people</p>
+<pre class="r"><code>library(dplyr)
+svytable(formula = ~x4+m8, design = sap.w) %&gt;% # weighted cross-tabulation of x4 by m8
+  prop.table(2) %&gt;% # column percentages
+  {.*100} %&gt;% # multiply values by 100
+  round(1) %&gt;% # round the values to one decimal point
+  knitr::kable() # present in a nice table</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th align="right">2006</th>
+<th align="right">2007</th>
+<th align="right">2008</th>
+<th align="right">2009</th>
+<th align="right">2010</th>
+<th align="right">2011</th>
+<th align="right">2012</th>
+<th align="right">2013</th>
+<th align="right">2014</th>
+<th align="right">2015</th>
+<th align="right">2016</th>
+<th align="right">2017</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>right direction</td>
+<td align="right">44.3</td>
+<td align="right">42.3</td>
+<td align="right">37.5</td>
+<td align="right">42.3</td>
+<td align="right">46.7</td>
+<td align="right">46.2</td>
+<td align="right">51.5</td>
+<td align="right">57.6</td>
+<td align="right">54.7</td>
+<td align="right">36.7</td>
+<td align="right">29.3</td>
+<td align="right">32.8</td>
+</tr>
+<tr class="even">
+<td>wrong direction</td>
+<td align="right">21.1</td>
+<td align="right">23.7</td>
+<td align="right">32.0</td>
+<td align="right">29.4</td>
+<td align="right">27.0</td>
+<td align="right">34.6</td>
+<td align="right">31.3</td>
+<td align="right">37.5</td>
+<td align="right">40.5</td>
+<td align="right">57.5</td>
+<td align="right">65.9</td>
+<td align="right">61.2</td>
+</tr>
+<tr class="odd">
+<td>some in right, some in wrong direction</td>
+<td align="right">29.4</td>
+<td align="right">25.3</td>
+<td align="right">23.0</td>
+<td align="right">20.6</td>
+<td align="right">21.6</td>
+<td align="right">17.1</td>
+<td align="right">15.4</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+<td align="right">0.0</td>
+</tr>
+<tr class="even">
+<td>refused</td>
+<td align="right">1.0</td>
+<td align="right">1.2</td>
+<td align="right">1.1</td>
+<td align="right">0.9</td>
+<td align="right">0.4</td>
+<td align="right">0.1</td>
+<td align="right">0.2</td>
+<td align="right">0.1</td>
+<td align="right">0.4</td>
+<td align="right">0.6</td>
+<td align="right">0.6</td>
+<td align="right">0.8</td>
+</tr>
+<tr class="odd">
+<td>don’t know</td>
+<td align="right">4.3</td>
+<td align="right">7.5</td>
+<td align="right">6.4</td>
+<td align="right">6.8</td>
+<td align="right">4.3</td>
+<td align="right">2.0</td>
+<td align="right">1.6</td>
+<td align="right">4.8</td>
+<td align="right">4.5</td>
+<td align="right">5.3</td>
+<td align="right">4.3</td>
+<td align="right">5.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
