@@ -22,3 +22,17 @@ sap.w <- svydesign(id = ~1, data = sap[!is.na(sap$MergeWgt10), ], weights = ~Mer
 ## 1 About the Survey of the Afghan People
 
 Since 2006, The Asia Foundation conducts [_**the Survey of the Afghan People**_](https://asiafoundation.org/where-we-work/afghanistan/survey/), a nationally-representative annual survey. The Survey reflects perceptions about a broad range of topics including security, development, governance, service delivery, women’s rights, and migration. The Survey is broadly used by policy makers, academics, non-governmental organizations working in and on Afghanistan. The Foundation make the Survey's data public on its [website](https://asiafoundation.org/where-we-work/afghanistan/survey/download-data-form/).
+
+## 2 Survey Weight
+
+National surveys such as the Survey of the Afghan People claim their data represent the general population. This claim is backed by the random selection of individuals that represent the true population. The Survey of the Afghan People collects data from all 34 provinces of Afghanistan, and include men and women, all ethnic groups and languages. The survey uses a multistage systematic sampling method, which means, first the country is divided into 34 stratas (here provinces) and then districts are selected within stratas using probability proportional to size (PPS) systematic sampling. The end product however might not fully represent the provincial, urban/rural, or gender proportions. Therefore, to ensure representativeness, survey weights are applied in analysis. Survey weights are commonly used in national or other types of surveys that claim representativeness of the population.
+
+To apply survey weights in R require using special treatment of general estimation commands, which is available in packages such as **survey**. This package provides the tools to apply survey weight on various types of estimation commands. The way the **survey** package apply weight is to create a _weighted dataset_. The Survey data comes in a tabular form and include weight variables. The main weight variable that is used for the analyses in the survey report is **MergeWgt10**. We have to use **svydesign()** function from the **survey** package to produce the weighted data.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE}
+# install.packages("survey") # install first if you haven't
+library(survey)
+sap <- load("sap.Rda")
+sap.w <- svydesign(id = ~1, data = sap[!is.na(sap$MergeWgt10), ], weights = ~MergeWgt10) # simple random sampling
+```
+
