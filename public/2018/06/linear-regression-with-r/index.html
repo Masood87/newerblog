@@ -7,7 +7,7 @@
 
 <meta property="og:title" content="Linear regression with R" />
 <meta property="og:description" content="Estimating linear regression Before starting, I am going to load a number of utility libraries for this session.
-library(tidyverse) library(broom) library(plotly)  " />
+library(tidyverse) library(broom) library(plotly) A simple linear regression using mtcars dataset. I want to look at how weight of a car is associated with how many miles a car travels per gallon of gasoline–an indicator of fuel economy. I am going to look at their summary and scatter plot. For scatter plot, I use base-R’s plot() function." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/2018/06/linear-regression-with-r/" />
 
@@ -30,7 +30,7 @@ library(tidyverse) library(broom) library(plotly)  " />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linear regression with R"/>
 <meta name="twitter:description" content="Estimating linear regression Before starting, I am going to load a number of utility libraries for this session.
-library(tidyverse) library(broom) library(plotly)  "/>
+library(tidyverse) library(broom) library(plotly) A simple linear regression using mtcars dataset. I want to look at how weight of a car is associated with how many miles a car travels per gallon of gasoline–an indicator of fuel economy. I am going to look at their summary and scatter plot. For scatter plot, I use base-R’s plot() function."/>
 
 
 
@@ -97,9 +97,9 @@ Masood Sadat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         
-                            <a class="dropdown-item" href="/">English</a>
-                        
                             <a class="dropdown-item" href="/es/">Español</a>
+                        
+                            <a class="dropdown-item" href="/">English</a>
                         
                     </div>
                 </li>
@@ -158,6 +158,17 @@ Masood Sadat
 <pre class="r"><code>library(tidyverse)
 library(broom)
 library(plotly)</code></pre>
+<p>A simple linear regression using <strong>mtcars</strong> dataset. I want to look at how weight of a car is associated with how many miles a car travels per gallon of gasoline–an indicator of fuel economy. I am going to look at their summary and scatter plot. For scatter plot, I use base-R’s <code>plot()</code> function.</p>
+<pre class="r"><code>summary(mtcars[, c(&quot;wt&quot;, &quot;mpg&quot;)])</code></pre>
+<pre><code>##        wt             mpg       
+##  Min.   :1.513   Min.   :10.40  
+##  1st Qu.:2.581   1st Qu.:15.43  
+##  Median :3.325   Median :19.20  
+##  Mean   :3.217   Mean   :20.09  
+##  3rd Qu.:3.610   3rd Qu.:22.80  
+##  Max.   :5.424   Max.   :33.90</code></pre>
+<pre class="r"><code>plot(mtcars$wt, mtcars$mpg)</code></pre>
+<p><img src="/post/2018-06-12-linear-regression-with-r_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
 
 

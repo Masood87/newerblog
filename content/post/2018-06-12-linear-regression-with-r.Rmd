@@ -20,3 +20,10 @@ library(broom)
 library(plotly)
 ```
 
+A simple linear regression using **mtcars** dataset. I want to look at how weight of a car is associated with how many miles a car travels per gallon of gasoline--an indicator of fuel economy. I am going to look at their summary and scatter plot. For scatter plot, I use base-R's `plot()` function.
+
+
+```{r message=FALSE, warning=FALSE}
+summary(mtcars[, c("wt", "mpg")])
+plot(mtcars$wt, mtcars$mpg)
+```

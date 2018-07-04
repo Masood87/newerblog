@@ -17,4 +17,15 @@ tags:
 <pre class="r"><code>library(tidyverse)
 library(broom)
 library(plotly)</code></pre>
+<p>A simple linear regression using <strong>mtcars</strong> dataset. I want to look at how weight of a car is associated with how many miles a car travels per gallon of gasoline–an indicator of fuel economy. I am going to look at their summary and scatter plot. For scatter plot, I use base-R’s <code>plot()</code> function.</p>
+<pre class="r"><code>summary(mtcars[, c(&quot;wt&quot;, &quot;mpg&quot;)])</code></pre>
+<pre><code>##        wt             mpg       
+##  Min.   :1.513   Min.   :10.40  
+##  1st Qu.:2.581   1st Qu.:15.43  
+##  Median :3.325   Median :19.20  
+##  Mean   :3.217   Mean   :20.09  
+##  3rd Qu.:3.610   3rd Qu.:22.80  
+##  Max.   :5.424   Max.   :33.90</code></pre>
+<pre class="r"><code>plot(mtcars$wt, mtcars$mpg)</code></pre>
+<p><img src="/post/2018-06-12-linear-regression-with-r_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 </div>
