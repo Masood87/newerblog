@@ -101,9 +101,9 @@ Masood Sadat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         
-                            <a class="dropdown-item" href="/es/">Español</a>
-                        
                             <a class="dropdown-item" href="/">English</a>
+                        
+                            <a class="dropdown-item" href="/es/">Español</a>
                         
                     </div>
                 </li>
@@ -186,6 +186,10 @@ access_secret &lt;- &quot;YOUR_ACCESS_SECRET&quot;</code></pre>
 <li>Collect tweets of your interest. For example, I want to collect 500 tweets that used <strong>#Afghanistan</strong>. That simple!</li>
 </ol>
 <pre class="r"><code>tw_afghanistan &lt;- searchTwitteR(searchString = &quot;#Afghanistan&quot;, n = 500)</code></pre>
+<p>At this stage, you will have the tweets in the form of a list. You can do any operation that is applicable on lists and character format. For starters, you can print the first tweet.</p>
+<pre class="r"><code>tw_afghanistan[[1]]</code></pre>
+<pre><code>## [1] &quot;hemu1112: RT @HatindersinghR: Attack On #Sikhs In #Afghanistan By Pakistan Secret Agency #ISI\nLets Start Khalistan Movement From Pakistan And Snatch…&quot;</code></pre>
+<p>In the next post, I will explore other packages related to <strong>twitter</strong> and also write about how to do analysis and visualize twitter data.</p>
 
 
     

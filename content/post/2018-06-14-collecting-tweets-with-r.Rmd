@@ -57,3 +57,12 @@ setup_twitter_oauth(consumer_key = api_key,
 ```{r}
 tw_afghanistan <- searchTwitteR(searchString = "#Afghanistan", n = 500)
 ```
+
+At this stage, you will have the tweets in the form of a list. You can do any operation that is applicable on lists and character format. For starters, you can print the first tweet.
+
+```{r}
+tw_afghanistan[[1]]
+```
+
+In the next post, I will explore other packages related to **twitter** and also write about how to do analysis and visualize twitter data.
+
