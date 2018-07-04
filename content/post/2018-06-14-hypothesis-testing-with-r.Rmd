@@ -75,6 +75,6 @@ perm_slopes <- mtcars %>%
 Next, I am going to use the permuted slops to plot a histogram, and add a red vertical line that represents the observed slope of relationship between `qsec` and `drat`. I can see that the observed slope overlaps the permuted slopes (null distribution), and once again I come to the same conclusionthat there is no meaningful relationship between `qsec` and `drat`.
 
 ```{r message=FALSE, warning=FALSE}
-# ggplot(perm_slopes, aes(stat)) + geom_histogram() +
-#   geom_vline(xintercept = obs_slope, color = "red")
+ggplot(perm_slopes, aes(stat)) + geom_histogram() +
+  geom_vline(xintercept = obs_slope, color = "red")
 ```
