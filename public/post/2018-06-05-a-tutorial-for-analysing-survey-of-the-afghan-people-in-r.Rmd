@@ -10,3 +10,11 @@ tags:
   - AfghanSurvey
 ---
 
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(feather)
+library(survey)
+sap <- read_feather("~/Documents/SAP 2017/Data/TAF Merge W1-12 Client Version v5.1.feather")
+sap.w <- svydesign(id = ~1, data = sap[!is.na(sap$MergeWgt10), ], weights = ~MergeWgt10)
+```
+

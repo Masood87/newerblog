@@ -18,3 +18,7 @@ sap <- read_feather("~/Documents/SAP 2017/Data/TAF Merge W1-12 Client Version v5
 sap.w <- svydesign(id = ~1, data = sap[!is.na(sap$MergeWgt10), ], weights = ~MergeWgt10)
 ```
 
+
+## 1 About the Survey of the Afghan People
+
+Since 2006, The Asia Foundation conducts [_**the Survey of the Afghan People**_](https://asiafoundation.org/where-we-work/afghanistan/survey/), a nationally-representative annual survey. The Survey reflects perceptions about a broad range of topics including security, development, governance, service delivery, women’s rights, and migration. The Survey is broadly used by policy makers, academics, non-governmental organizations working in and on Afghanistan. The Foundation make the Survey's data public on its [website](https://asiafoundation.org/where-we-work/afghanistan/survey/download-data-form/).
