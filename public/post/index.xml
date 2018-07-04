@@ -35,6 +35,15 @@ Install and load corrplot package  install.packages(&amp;quot;corrplot&amp;quot;
     </item>
     
     <item>
+      <title>Hypothesis testing with R</title>
+      <link>/2018/06/hypothesis-testing-with-r/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/hypothesis-testing-with-r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Add a local folder to GitHub using the command line</title>
       <link>/2018/06/add-a-local-folder-to-github-using-the-command-line/</link>
       <pubDate>Wed, 13 Jun 2018 00:00:00 +0000</pubDate>
