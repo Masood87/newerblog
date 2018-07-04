@@ -98,7 +98,7 @@ ls
 
 Here is a screen shot of the process. As you can see, `Learn-how-to-github` is added and there is nothing inside it yet.
 
-![](/post/Learn_to_git_files/git clone.png){width=100%}
+![](~/Documents/GitHub/blog/static/post/Learn_to_git_files/git clone.png){width=100%}
 
 # Make a change to repository and `git add`
 
