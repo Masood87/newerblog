@@ -93,3 +93,8 @@ corrplot(corr = cor(df[, c(2, 3, 7)], use = "pairwise"),
          type = "upper")
 ```
 
+# Selection of Provinces for Monitoring
+
+Based on last year's results, the best indicator for the data quality (represented by logic test failure rate) is whether third party monitoring was deployed or not. Moreover, the monitoring assessment did not have a meaningful relationship. Listing the most problematic districts (with largest logic test failure rates), irrespective of monitoring, the 13 provinces with largest rates are therefore selected for this year's monitoring. The selected provinces include `r monitoredSelect` provinces that were monitored last year too. The following are the list of 13 provinces selected, and the following plot presents the provinces with their logic test failure rates.
+
+> _Selected provinces for monitoring: `r selectedProv`._
