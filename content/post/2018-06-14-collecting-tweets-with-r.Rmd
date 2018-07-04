@@ -9,3 +9,11 @@ tags:
   - twitter
 ---
 
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(twitteR)
+
+api_key <- "Xt0oXgKSo6LdrDGoXaWr50CYw"
+api_secret <- "rdjVhLuwYY9VKKU2NAIU5WGM8QKUaALZ6pMiA0tdhin6i3j5F4"
+access_token <- "987749453288394753-cvmDm0t3MhOOEw4PFmDFRqjcvwnSrag"
+access_secret <- "8G344YbekypsnXLgKNqGBc7Vx88b5JbLFxHcdf8AZOg5a"
+```
