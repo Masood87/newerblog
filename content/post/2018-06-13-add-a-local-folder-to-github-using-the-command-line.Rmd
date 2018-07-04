@@ -1,0 +1,11 @@
+---
+title: Add a local folder to GitHub using the command line
+author: Masood Sadat
+date: '2018-06-13'
+slug: add-a-local-folder-to-github-using-the-command-line
+categories:
+  - git
+tags:
+  - git
+---
+

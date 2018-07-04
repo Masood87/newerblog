@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/06/add-a-local-folder-to-github-using-the-command-line/</loc>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/06/linear-regression-with-r/</loc>
     <lastmod>2018-06-12T00:00:00+00:00</lastmod>
   </url>
@@ -133,14 +138,14 @@
   </url>
   
   <url>
-    <loc>/tags/git/</loc>
-    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+    <loc>/categories/git/</loc>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/git/</loc>
-    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+    <loc>/tags/git/</loc>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -150,7 +155,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-06-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -166,7 +171,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-06-12T00:00:00+00:00</lastmod>
+    <lastmod>2018-06-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
