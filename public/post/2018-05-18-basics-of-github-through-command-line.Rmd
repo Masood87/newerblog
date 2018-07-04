@@ -27,7 +27,7 @@ Go to [`github.com`](https://github.com) and create an account. Once, account is
 
 After a new repository is created, copy the `clone url` link. This link is used to clone the repository from server to the computer.
 
-![](/post/Learn_to_git_files/copy clone url.png){width=100%}
+![](~/Documents/GitHub/blog/static/post/Learn_to_git_files/copy clone url.png){width=100%}
 
 # Set working directory
 
