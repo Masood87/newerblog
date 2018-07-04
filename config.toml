@@ -1,5 +1,5 @@
-baseurl = "https://example.com/"
-title = "Bootstrap demo"
+baseurl = "https://masood.netlify.com/"
+title = "Masood Sadat"
 languageCode = "en-us"
 
 # Pagination
@@ -55,21 +55,21 @@ defaultContentLanguage = "en"
     name = "Contacto"
     weight = 3
 
-[languages.de]
-  languageName = "Deutsch"
+#[languages.de]
+#  languageName = "Deutsch"
 
-  [[languages.de.menu.main]]
-    url = "/de/"
-    name = "Start"
-    weight = 1
-  [[languages.de.menu.main]]
-    url = "/about/"
-    name = "Über uns"
-    weight = 2
-  [[languages.de.menu.main]]
-    url = "/contact/"
-    name = "Kontakt"
-    weight = 3
+#  [[languages.de.menu.main]]
+#    url = "/de/"
+#    name = "Start"
+#    weight = 1
+#  [[languages.de.menu.main]]
+#    url = "/about/"
+#    name = "Über uns"
+#    weight = 2
+#  [[languages.de.menu.main]]
+#    url = "/contact/"
+#    name = "Kontakt"
+#    weight = 3
 
 # Links format
 
@@ -81,7 +81,7 @@ defaultContentLanguage = "en"
   mainSections = ["post"]
 
   # Default author
-  author = "John Doe"
+  author = "Masood Sadat"
 
   # Date format (default: Jan 2, 2006)
   # date_format = "Jan 2, 2006"
