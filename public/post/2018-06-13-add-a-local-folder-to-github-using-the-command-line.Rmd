@@ -13,3 +13,21 @@ Did you know you can upload almost anything on [**Github.com**](https://github.c
 
 Recently, I have started uploading many of my files on github, besides code. I do it because I am working on two different computers, one at work and one at home, and I think this is a great way to keep my work synchronized. I am not going to talk more about using github at this point--maybe I will have a dedicated post on that later. In this post, I want to show you how to add a folder on your local computer to github using command line. If you start a project with github from zero, that is easy--read this [post](/2018/05/18/basics-of-github-through-command-line/). Let's start by following these 8 steps:
 
+1. [Create an empty repository](/2018/05/18/basics-of-github-through-command-line/) on github.com. Unless you are a pro, do not create the new repository with _README_, license, or `gitignore` files, because it will create complications.
+
+2. Open Terminal (Mac/Linux), and change your working directory to your folder on your computer. If you are on windows, you have **command prompt**.
+
+3. Initialize the local directory as git repository by typing `git init` in the **terminal**.
+
+4. Do the routine `git add .` and `git commit -m "first commit"` routine in the **terminal**.
+
+5. Copy the URL to the empty repository you created in **step 1**.
+
+6. Back to the **terminal**, add the empty repository's URL to the `git remote add origin *URL_here*` command and run.
+
+7. Still in the **terminal**, verify the URL with `git remote -v`.
+
+8. Step 4 adds and stages files, and steps 6 and 7 connects the local folder to the repository on **github**. The last step is to **push** the staged files to **github**. In the **terminal**, run `git push -u origin master`.
+
+
+

@@ -154,6 +154,16 @@ Masood Sadat
 <article class="blog-post">
     <p>Did you know you can upload almost anything on <a href="https://github.come"><strong>Github.com</strong></a>?</p>
 <p>Recently, I have started uploading many of my files on github, besides code. I do it because I am working on two different computers, one at work and one at home, and I think this is a great way to keep my work synchronized. I am not going to talk more about using github at this point–maybe I will have a dedicated post on that later. In this post, I want to show you how to add a folder on your local computer to github using command line. If you start a project with github from zero, that is easy–read this <a href="/2018/05/18/basics-of-github-through-command-line/">post</a>. Let’s start by following these 8 steps:</p>
+<ol style="list-style-type: decimal">
+<li><p><a href="/2018/05/18/basics-of-github-through-command-line/">Create an empty repository</a> on github.com. Unless you are a pro, do not create the new repository with <em>README</em>, license, or <code>gitignore</code> files, because it will create complications.</p></li>
+<li><p>Open Terminal (Mac/Linux), and change your working directory to your folder on your computer. If you are on windows, you have <strong>command prompt</strong>.</p></li>
+<li><p>Initialize the local directory as git repository by typing <code>git init</code> in the <strong>terminal</strong>.</p></li>
+<li><p>Do the routine <code>git add .</code> and <code>git commit -m &quot;first commit&quot;</code> routine in the <strong>terminal</strong>.</p></li>
+<li><p>Copy the URL to the empty repository you created in <strong>step 1</strong>.</p></li>
+<li><p>Back to the <strong>terminal</strong>, add the empty repository’s URL to the <code>git remote add origin *URL_here*</code> command and run.</p></li>
+<li><p>Still in the <strong>terminal</strong>, verify the URL with <code>git remote -v</code>.</p></li>
+<li><p>Step 4 adds and stages files, and steps 6 and 7 connects the local folder to the repository on <strong>github</strong>. The last step is to <strong>push</strong> the staged files to <strong>github</strong>. In the <strong>terminal</strong>, run <code>git push -u origin master</code>.</p></li>
+</ol>
 
 
     
