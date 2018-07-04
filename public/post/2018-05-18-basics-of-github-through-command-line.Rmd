@@ -66,7 +66,7 @@ ls
 
 Here is a screen shot of the process. As you can see, there are already three folders in the working directory.
 
-![](/post/Learn_to_git_files/set working directory.png){width=100%}
+![](~/Documents/GitHub/blog/static/post/Learn_to_git_files/set working directory.png){width=100%}
 
 # Clone the repository to computer
 
