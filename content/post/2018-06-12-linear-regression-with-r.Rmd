@@ -62,7 +62,4 @@ ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point() + geom_smooth(method = "lm",
 
 Visualizing multiple regression becomes more challenging, as each variable in the model has to have a dimension. Therefore, as it is not possible to visualize more than 3 dimensions, a model with two right-hand-side variables can be visualized at most. Here, I am plotting weight, mpg, and horsepower using an **plotly** package that creates interactive plots.
 
-```{r message=FALSE, warning=FALSE}
-plotly::plot_ly(data = mtcars, x = ~wt, y = ~mpg, z = ~hp)
-```
 
