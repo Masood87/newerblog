@@ -6,10 +6,19 @@
     <description>Recent content in Afghanistan on Masood Sadat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/afghanistan/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Selection of Provinces for Monitoring in SAP 2018</title>
+      <link>/2018/06/selection-of-provinces-for-monitoring-in-sap-2018/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/selection-of-provinces-for-monitoring-in-sap-2018/</guid>
+      <description>Introduction The Asia Foundation (TAF) employs a number of methods to ensure data quality for the Survey of the Afghan People (SAP). The most important quality controls are (1) third party monitoringy, and (2) logic tests. The third party monitoring is carried out on 10% of all surveys by an independent company, and 25% are subject to monitoring from the data collection company. The third party monitoring started in 2014, and since then Sayara Research has been the implementing partner for this activity.</description>
+    </item>
     
     <item>
       <title>A Tutorial for Analysing Survey of the Afghan People in R</title>
