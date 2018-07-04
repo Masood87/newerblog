@@ -46,3 +46,12 @@ tpm$Provinces[tpm$Provinces=="Lagman"] <- "Laghman"
 
 df <- inner_join(tpm, lt, by = "Provinces"); rm(tpm, lt)
 ```
+
+The logic test results are aggregated at the provincial level for this analysis. In addition to the failtures, we look at the provincial sample size and whether the province was monitored or not (by Sayara). The following table shows part of the data that is used in this analysis.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(knitr)
+library(kableExtra)
+kable(head(df), format = "html", align = c("l", "c", "c", "c", "c", "l", "c")) %>% 
+  kable_styling(font_size = 13)
+```

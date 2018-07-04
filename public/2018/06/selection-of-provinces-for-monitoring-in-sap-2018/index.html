@@ -152,7 +152,10 @@ Masood Sadat
     <hr>
 </header>
 <article class="blog-post">
-    <div id="introduction" class="section level1">
+    <script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="introduction" class="section level1">
 <h1>Introduction</h1>
 <p>The Asia Foundation (TAF) employs a number of methods to ensure data quality for the Survey of the Afghan People (SAP). The most important quality controls are (1) third party monitoringy, and (2) logic tests. The third party monitoring is carried out on 10% of all surveys by an independent company, and 25% are subject to monitoring from the data collection company. The <strong>third party monitoring</strong> started in 2014, and since then Sayara Research has been the implementing partner for this activity. The <strong>logic tests</strong> are a set of internal tools in the form of codes that are used to detects inconsistencies and potentially fraudulent data. In this note, I document the analysis and reasoning behind the selection of 13 provinces for the <em>third party monitoring</em>, in which logic tests and previous year’s third party monitoring report are used.</p>
 </div>
@@ -168,6 +171,174 @@ Masood Sadat
 </div>
 <div id="analysis" class="section level1">
 <h1>Analysis</h1>
+<p>The logic test results are aggregated at the provincial level for this analysis. In addition to the failtures, we look at the provincial sample size and whether the province was monitored or not (by Sayara). The following table shows part of the data that is used in this analysis.</p>
+<table class="table" style="font-size: 13px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Provinces
+</th>
+<th style="text-align:center;">
+Training rating
+</th>
+<th style="text-align:center;">
+Direct observation rating
+</th>
+<th style="text-align:center;">
+Logic Test Failures
+</th>
+<th style="text-align:center;">
+Sample Size
+</th>
+<th style="text-align:left;">
+Province Monitored
+</th>
+<th style="text-align:center;">
+Percent Failed at Logic Test
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Badakhshan
+</td>
+<td style="text-align:center;">
+1.00
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+216
+</td>
+<td style="text-align:left;">
+Monitored
+</td>
+<td style="text-align:center;">
+0.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Badghis
+</td>
+<td style="text-align:center;">
+1.00
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+210
+</td>
+<td style="text-align:left;">
+Not Monitored
+</td>
+<td style="text-align:center;">
+1.43
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Baghlan
+</td>
+<td style="text-align:center;">
+0.80
+</td>
+<td style="text-align:center;">
+5
+</td>
+<td style="text-align:center;">
+1
+</td>
+<td style="text-align:center;">
+341
+</td>
+<td style="text-align:left;">
+Monitored
+</td>
+<td style="text-align:center;">
+0.29
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Balkh
+</td>
+<td style="text-align:center;">
+1.00
+</td>
+<td style="text-align:center;">
+8
+</td>
+<td style="text-align:center;">
+3
+</td>
+<td style="text-align:center;">
+415
+</td>
+<td style="text-align:left;">
+Monitored
+</td>
+<td style="text-align:center;">
+0.72
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Bamyan
+</td>
+<td style="text-align:center;">
+1.00
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+2
+</td>
+<td style="text-align:center;">
+312
+</td>
+<td style="text-align:left;">
+Not Monitored
+</td>
+<td style="text-align:center;">
+0.64
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Daikundi
+</td>
+<td style="text-align:center;">
+0.95
+</td>
+<td style="text-align:center;">
+NA
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+216
+</td>
+<td style="text-align:left;">
+Not Monitored
+</td>
+<td style="text-align:center;">
+0.00
+</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
