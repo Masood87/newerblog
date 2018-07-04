@@ -15,8 +15,10 @@ tags:
 <ol style="list-style-type: decimal">
 <li><p>To being, you have to have a twitter account. If you do not have, create a twitter account on <a href="https://twitter.com">twitter.com</a>.</p></li>
 <li><p>Create a twitter application on <a href="https://apps.twitter.com">apps.twitter.com</a>. There, you have to insert a number of information, see the following screen shot.</p></li>
-<li><p>Once, you created an application, you will have access to <em>API Key</em> and <em>API Secret</em> in the <strong>Keys and Access Tokens</strong> tab. In the same tab, you can create <em>access tokens</em> too. Store these information in R, but before that you have to do the step 4.</p></li>
-<li><p>Go to RStudio: install and attach <strong>twitteR</strong> package.</p></li>
+</ol>
+<p><img src="/post/2018-06-14-collecting-tweets-with-r_files/Screen%20Shot%202018-06-13%20at%205.58.31%20PM.png" style="width:100.0%" /> 3. Once, you created an application, you will have access to <em>API Key</em> and <em>API Secret</em> in the <strong>Keys and Access Tokens</strong> tab. In the same tab, you can create <em>access tokens</em> too. Store these information in R, but before that you have to do the step 4.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Go to RStudio: install and attach <strong>twitteR</strong> package.</li>
 </ol>
 <pre class="r"><code>install.packages(&quot;twitteR&quot;)
 library(twitteR)</code></pre>
@@ -43,5 +45,5 @@ access_secret &lt;- &quot;YOUR_ACCESS_SECRET&quot;</code></pre>
 <pre class="r"><code>tw_afghanistan &lt;- searchTwitteR(searchString = &quot;#Afghanistan&quot;, n = 500)</code></pre>
 <p>At this stage, you will have the tweets in the form of a list. You can do any operation that is applicable on lists and character format. For starters, you can print the first tweet.</p>
 <pre class="r"><code>tw_afghanistan[[1]]</code></pre>
-<pre><code>## [1] &quot;hemu1112: RT @HatindersinghR: Attack On #Sikhs In #Afghanistan By Pakistan Secret Agency #ISI\nLets Start Khalistan Movement From Pakistan And Snatch…&quot;</code></pre>
+<pre><code>## [1] &quot;Tina_B111: RT @ndaktuell: Mehr als 50 Menschen sind nach #Afghanistan abgeschoben worden. Die Bundesregierung scheint nicht zu interessieren, dass in…&quot;</code></pre>
 <p>In the next post, I will explore other packages related to <strong>twitter</strong> and also write about how to do analysis and visualize twitter data.</p>

@@ -24,7 +24,7 @@ In this post I am going to download tweets using **twitteR** package.
 
 2. Create a twitter application on [apps.twitter.com](https://apps.twitter.com). There, you have to insert a number of information, see the following screen shot.
 
-
+![](/post/2018-06-14-collecting-tweets-with-r_files/Screen Shot 2018-06-13 at 5.58.31 PM.png){width=100%}
 3. Once, you created an application, you will have access to _API Key_ and _API Secret_ in the **Keys and Access Tokens** tab. In the same tab, you can create _access tokens_ too. Store these information in R, but before that you have to do the step 4.
 
 4. Go to RStudio: install and attach **twitteR** package.
