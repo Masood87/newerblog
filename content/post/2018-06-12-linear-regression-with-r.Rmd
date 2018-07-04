@@ -55,3 +55,7 @@ broom::tidy(lm(mpg ~ wt, data = mtcars)) %>% head()
 # Visualizing linear regression
 
 The best way to visualize a simple linear regression is a scatter plot and a fitted regression line. For a simple linear regression, a 2-dimensional plot and a fitted line suffices. Here I use the **ggplot2**'s `ggplot()` function which is made available through the **tidyverse** package.
+
+```{r message=FALSE, warning=FALSE}
+ggplot(mtcars, aes(x = mpg, y = wt)) + geom_point() + geom_smooth(method = "lm", se = F) + theme_bw()
+```
