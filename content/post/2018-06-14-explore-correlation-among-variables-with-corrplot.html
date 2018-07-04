@@ -18,3 +18,12 @@ tags:
 </ol>
 <pre class="r"><code>install.packages(&quot;corrplot&quot;)
 library(corrplot)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Estimate correlation between all variables of <strong>mtcars</strong> dataset using <code>cor</code>, and then plot the correlations using <code>corrplot()</code>. You have to specify a method, and there are quite a few of them–here I demonstrate two of them: <em>square</em> and <em>number</em></li>
+</ol>
+<pre class="r"><code>mat &lt;- cor(mtcars)
+corrplot(mat, method = &quot;square&quot;)</code></pre>
+<p><img src="/post/2018-06-14-explore-correlation-among-variables-with-corrplot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>corrplot(mat, method = &quot;number&quot;)</code></pre>
+<p><img src="/post/2018-06-14-explore-correlation-among-variables-with-corrplot_files/figure-html/unnamed-chunk-3-2.png" width="672" /></p>
+<p>To explore more, see the help (<code>?corrplot</code>) and visit the Introduction to corrplot Package post on <a href="https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html">CRAN</a>.</p>

@@ -23,3 +23,13 @@ Try it for yourself.
 install.packages("corrplot")
 library(corrplot)
 ```
+
+2. Estimate correlation between all variables of **mtcars** dataset using `cor`, and then plot the correlations using `corrplot()`. You have to specify a method, and there are quite a few of them--here I demonstrate two of them: _square_ and _number_
+
+```{r}
+mat <- cor(mtcars)
+corrplot(mat, method = "square")
+corrplot(mat, method = "number")
+```
+
+To explore more, see the help (`?corrplot`) and visit the Introduction to corrplot Package post on [CRAN](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html).
