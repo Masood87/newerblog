@@ -11,3 +11,19 @@ tags:
   - function
 ---
 
+
+> In this post, we will explore **visdat** package to visualize missing values. Then, we will recreate a similar plot using **ggplot2** package. Next, using the **ggplot2** method, we will visualize other numeric or character values in a dataset. Finally, using the **ggplot2** method, we will create a custom function that will plot any value in any dataset.
+
+There are many ways to inspect and find about missing values in a dataset. For example, `summary()` function from base R produces descriptive statistics and number of `NA`'s. Let's use that with **airquality** dataset, that has some missing values.
+
+```{r message=FALSE, warning=FALSE}
+summary(airquality)
+```
+
+From the output of `summary()` function, we can see columns/variables **Ozone** has 36 missing values (`NA`'s) and column **Solar.R** has 7 missing values. 
+
+You can also inspect the whole dataset as in a spreadsheet view using `View()`.
+
+```{r eval=FALSE, message=FALSE, warning=FALSE}
+View(airquality)
+```

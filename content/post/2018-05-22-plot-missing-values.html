@@ -13,4 +13,27 @@ tags:
 
 
 
-
+<blockquote>
+<p>In this post, we will explore <strong>visdat</strong> package to visualize missing values. Then, we will recreate a similar plot using <strong>ggplot2</strong> package. Next, using the <strong>ggplot2</strong> method, we will visualize other numeric or character values in a dataset. Finally, using the <strong>ggplot2</strong> method, we will create a custom function that will plot any value in any dataset.</p>
+</blockquote>
+<p>There are many ways to inspect and find about missing values in a dataset. For example, <code>summary()</code> function from base R produces descriptive statistics and number of <code>NA</code>’s. Let’s use that with <strong>airquality</strong> dataset, that has some missing values.</p>
+<pre class="r"><code>summary(airquality)</code></pre>
+<pre><code>##      Ozone           Solar.R           Wind             Temp      
+##  Min.   :  1.00   Min.   :  7.0   Min.   : 1.700   Min.   :56.00  
+##  1st Qu.: 18.00   1st Qu.:115.8   1st Qu.: 7.400   1st Qu.:72.00  
+##  Median : 31.50   Median :205.0   Median : 9.700   Median :79.00  
+##  Mean   : 42.13   Mean   :185.9   Mean   : 9.958   Mean   :77.88  
+##  3rd Qu.: 63.25   3rd Qu.:258.8   3rd Qu.:11.500   3rd Qu.:85.00  
+##  Max.   :168.00   Max.   :334.0   Max.   :20.700   Max.   :97.00  
+##  NA&#39;s   :37       NA&#39;s   :7                                       
+##      Month            Day      
+##  Min.   :5.000   Min.   : 1.0  
+##  1st Qu.:6.000   1st Qu.: 8.0  
+##  Median :7.000   Median :16.0  
+##  Mean   :6.993   Mean   :15.8  
+##  3rd Qu.:8.000   3rd Qu.:23.0  
+##  Max.   :9.000   Max.   :31.0  
+## </code></pre>
+<p>From the output of <code>summary()</code> function, we can see columns/variables <strong>Ozone</strong> has 36 missing values (<code>NA</code>’s) and column <strong>Solar.R</strong> has 7 missing values.</p>
+<p>You can also inspect the whole dataset as in a spreadsheet view using <code>View()</code>.</p>
+<pre class="r"><code>View(airquality)</code></pre>
