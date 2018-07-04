@@ -46,3 +46,35 @@ Then, plot the permuted slopes using a histogram and add the observed slope as a
 ggplot(perm_slopes, aes(stat)) + geom_histogram() + # histogram distribution of slope of null hypothesis
   geom_vline(xintercept = obs_slope, color = "red") # add a vertical line for observed slope
 ```
+
+## A Not-Meaningful Relationship
+
+To contrast, let's look at the relationship between real axle ratio (`drat`) and "1/4 mile time" (`qsec`) from the same **mtcars** data, which appears to have no relationship based on observing them on a scatter plot.
+
+```{r}
+# ggplot(mtcars, aes(drat, qsec)) + geom_point()
+```
+
+Fitting a linear model to estimate the linear relationship between `drat` and `qsec`, I cannot reject the null hypothesis that there is a meaningful relationship between the two variables. Note the statistics and p-value values.
+
+```{r}
+# tidy(lm(qsec ~ drat, data = mtcars))
+# obs_slope <- tidy(lm(qsec ~ drat, data = mtcars)) %>% .[2,2]
+```
+
+Let's estimate the null (no relationship) distribution using the **infer** package.
+
+```{r}
+# perm_slopes <- mtcars %>%
+#   specify(qsec ~ drat) %>%
+#   hypothesize(null = "independence") %>%
+#   generate(reps = 1000, type = "permute") %>%
+#   calculate(stat = "slope")
+```
+
+Next, I am going to use the permuted slops to plot a histogram, and add a red vertical line that represents the observed slope of relationship between `qsec` and `drat`. I can see that the observed slope overlaps the permuted slopes (null distribution), and once again I come to the same conclusionthat there is no meaningful relationship between `qsec` and `drat`.
+
+```{r message=FALSE, warning=FALSE}
+# ggplot(perm_slopes, aes(stat)) + geom_histogram() +
+#   geom_vline(xintercept = obs_slope, color = "red")
+```

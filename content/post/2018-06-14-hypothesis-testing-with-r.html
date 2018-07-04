@@ -39,3 +39,20 @@ obs_slope &lt;- tidy(lm(mpg ~ wt, data = mtcars)) %&gt;% .[2,2] # observed slope
   geom_vline(xintercept = obs_slope, color = &quot;red&quot;) # add a vertical line for observed slope</code></pre>
 <p><img src="/post/2018-06-14-hypothesis-testing-with-r_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
+<div id="a-not-meaningful-relationship" class="section level2">
+<h2>A Not-Meaningful Relationship</h2>
+<p>To contrast, let’s look at the relationship between real axle ratio (<code>drat</code>) and “1/4 mile time” (<code>qsec</code>) from the same <strong>mtcars</strong> data, which appears to have no relationship based on observing them on a scatter plot.</p>
+<pre class="r"><code># ggplot(mtcars, aes(drat, qsec)) + geom_point()</code></pre>
+<p>Fitting a linear model to estimate the linear relationship between <code>drat</code> and <code>qsec</code>, I cannot reject the null hypothesis that there is a meaningful relationship between the two variables. Note the statistics and p-value values.</p>
+<pre class="r"><code># tidy(lm(qsec ~ drat, data = mtcars))
+# obs_slope &lt;- tidy(lm(qsec ~ drat, data = mtcars)) %&gt;% .[2,2]</code></pre>
+<p>Let’s estimate the null (no relationship) distribution using the <strong>infer</strong> package.</p>
+<pre class="r"><code># perm_slopes &lt;- mtcars %&gt;%
+#   specify(qsec ~ drat) %&gt;%
+#   hypothesize(null = &quot;independence&quot;) %&gt;%
+#   generate(reps = 1000, type = &quot;permute&quot;) %&gt;%
+#   calculate(stat = &quot;slope&quot;)</code></pre>
+<p>Next, I am going to use the permuted slops to plot a histogram, and add a red vertical line that represents the observed slope of relationship between <code>qsec</code> and <code>drat</code>. I can see that the observed slope overlaps the permuted slopes (null distribution), and once again I come to the same conclusionthat there is no meaningful relationship between <code>qsec</code> and <code>drat</code>.</p>
+<pre class="r"><code># ggplot(perm_slopes, aes(stat)) + geom_histogram() +
+#   geom_vline(xintercept = obs_slope, color = &quot;red&quot;)</code></pre>
+</div>
