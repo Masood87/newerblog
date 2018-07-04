@@ -34,3 +34,20 @@ install.packages("twitteR")
 library(twitteR)
 ```
 
+4. From step 3, store **API Key**, **API Secret**, **Access Token**, and **Access Secret** into the following code chunk.
+
+```{r eval=FALSE}
+api_key <- "YOUR_API_KEY"
+api_secret <- "YOUR_API_SECRET"
+access_token <- "YOUR_ACCESS_TOKEN"
+access_secret <- "YOUR_ACCESS_SECRET"
+```
+
+5. Now, setup your twitter details with **twitteR**
+
+```{r}
+setup_twitter_oauth(consumer_key = api_key, 
+                    consumer_secret = api_secret, 
+                    access_token=access_token, 
+                    access_secret=access_secret)
+```
