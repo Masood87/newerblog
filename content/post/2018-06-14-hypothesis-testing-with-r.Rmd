@@ -65,11 +65,11 @@ obs_slope <- tidy(lm(qsec ~ drat, data = mtcars)) %>% .[2,2]
 Let's estimate the null (no relationship) distribution using the **infer** package.
 
 ```{r}
-# perm_slopes <- mtcars %>%
-#   specify(qsec ~ drat) %>%
-#   hypothesize(null = "independence") %>%
-#   generate(reps = 1000, type = "permute") %>%
-#   calculate(stat = "slope")
+perm_slopes <- mtcars %>%
+  specify(qsec ~ drat) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "slope")
 ```
 
 Next, I am going to use the permuted slops to plot a histogram, and add a red vertical line that represents the observed slope of relationship between `qsec` and `drat`. I can see that the observed slope overlaps the permuted slopes (null distribution), and once again I come to the same conclusionthat there is no meaningful relationship between `qsec` and `drat`.

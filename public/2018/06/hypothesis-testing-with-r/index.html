@@ -194,11 +194,11 @@ obs_slope &lt;- tidy(lm(mpg ~ wt, data = mtcars)) %&gt;% .[2,2] # observed slope
 ## 2        drat  0.3048143 0.6076358 0.5016398 6.195826e-01</code></pre>
 <pre class="r"><code>obs_slope &lt;- tidy(lm(qsec ~ drat, data = mtcars)) %&gt;% .[2,2]</code></pre>
 <p>Let’s estimate the null (no relationship) distribution using the <strong>infer</strong> package.</p>
-<pre class="r"><code># perm_slopes &lt;- mtcars %&gt;%
-#   specify(qsec ~ drat) %&gt;%
-#   hypothesize(null = &quot;independence&quot;) %&gt;%
-#   generate(reps = 1000, type = &quot;permute&quot;) %&gt;%
-#   calculate(stat = &quot;slope&quot;)</code></pre>
+<pre class="r"><code>perm_slopes &lt;- mtcars %&gt;%
+  specify(qsec ~ drat) %&gt;%
+  hypothesize(null = &quot;independence&quot;) %&gt;%
+  generate(reps = 1000, type = &quot;permute&quot;) %&gt;%
+  calculate(stat = &quot;slope&quot;)</code></pre>
 <p>Next, I am going to use the permuted slops to plot a histogram, and add a red vertical line that represents the observed slope of relationship between <code>qsec</code> and <code>drat</code>. I can see that the observed slope overlaps the permuted slopes (null distribution), and once again I come to the same conclusionthat there is no meaningful relationship between <code>qsec</code> and <code>drat</code>.</p>
 <pre class="r"><code># ggplot(perm_slopes, aes(stat)) + geom_histogram() +
 #   geom_vline(xintercept = obs_slope, color = &quot;red&quot;)</code></pre>
