@@ -39,3 +39,9 @@ The output from `lm()` function quantifies a negative relationship between weigh
 ```{r message=FALSE, warning=FALSE}
 summary(lm(mpg ~ wt, data = mtcars))
 ```
+
+Furthermore, `augment()` from **broom** package allows you to access the fitted values and residuals of this regression model, in the form of a data.frame.
+
+```{r message=FALSE, warning=FALSE}
+broom::augment(lm(mpg ~ wt, data = mtcars)) %>% head()
+```
