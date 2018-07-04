@@ -29,7 +29,7 @@ library(corrplot)
 ```{r}
 mat <- cor(mtcars)
 corrplot(mat, method = "square")
-# corrplot(mat, method = "number")
+corrplot(mat, method = "number")
 ```
 
 To explore more, see the help (`?corrplot`) and visit the Introduction to corrplot Package post on [CRAN](https://cran.r-project.org/web/packages/corrplot/vignettes/corrplot-intro.html).
