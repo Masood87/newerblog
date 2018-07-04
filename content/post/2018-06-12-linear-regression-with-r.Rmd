@@ -45,3 +45,9 @@ Furthermore, `augment()` from **broom** package allows you to access the fitted 
 ```{r message=FALSE, warning=FALSE}
 broom::augment(lm(mpg ~ wt, data = mtcars)) %>% head()
 ```
+
+There is also `tidy()` function from **broom** package that makes a "tidy" data.frame of the regression estimates.
+
+```{r message=FALSE, warning=FALSE}
+broom::tidy(lm(mpg ~ wt, data = mtcars)) %>% head()
+```

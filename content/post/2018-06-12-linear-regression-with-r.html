@@ -73,4 +73,9 @@ library(plotly)</code></pre>
 ## 4 3.088268 3.020558e-03  0.43275114
 ## 5 3.097722 7.599578e-05 -0.06681879
 ## 6 3.095184 9.210650e-04 -0.23148309</code></pre>
+<p>There is also <code>tidy()</code> function from <strong>broom</strong> package that makes a “tidy” data.frame of the regression estimates.</p>
+<pre class="r"><code>broom::tidy(lm(mpg ~ wt, data = mtcars)) %&gt;% head()</code></pre>
+<pre><code>##          term  estimate std.error statistic      p.value
+## 1 (Intercept) 37.285126  1.877627 19.857575 8.241799e-19
+## 2          wt -5.344472  0.559101 -9.559044 1.293959e-10</code></pre>
 </div>
