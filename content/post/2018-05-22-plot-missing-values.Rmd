@@ -51,3 +51,46 @@ Let's use `vis_dat()` function. This plot visualizes the class of each column of
 ```{r message=FALSE, warning=FALSE}
 vis_dat(airquality)
 ```
+
+## Visualize missing values with ggplot2 package
+
+I suspect `vis_miss()` and `vis_dat()` use **ggplot2** under the hood because they resemble plots created with **ggplot2** package. Let's attempt to use **ggplot2** package to recreate a similar plot `vis_miss()` created.
+
+I am going to load **tidyverse** package, which includes packages that we need: **ggplot2**, **dplyr**, and **tidyr**. So instead of loading these three packages separately, I am going to load only **tidyverse**.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+```
+
+Again I am going to use **airquality** dataset. The following chunk of code produces a plot that indicates missing values. I have left comments inside the code that explains each part of the code.
+
+```{r message=FALSE, warning=FALSE}
+# takes airquality data.frame and tests presence of missing values, returning a matrix of TRUE and FALSE, with TRUE indicating missing values
+is.na(airquality) %>%
+  
+  # takes the matrix as argument and converts it into a data.frame object
+  data.frame() %>%
+  
+  # takes the data.frame object as argument, and creates a column named obs that takes value 1 through 153 which is airquality's number of rows
+  mutate(obs = 1:nrow(.)) %>%
+  
+  # takes the data.frame object with new column obs and reshape it from wide format to long format, transforming all other columns into var and is_missing columns, with exception of obs column
+  gather(var, is_missing, -obs) %>%
+  
+  # takes the data.frame in long format and produces a tile plot with var column in x axis, obs column in y axis, and fill the tiles based with is_missing column values
+  ggplot(aes(x = var, y = obs, fill = is_missing)) + geom_tile() + 
+  
+  # use a black and white theme for the plot
+  theme_bw() +
+  
+  # change x and y axes titles of the plot
+  labs(x="Variables", y="Observations") +
+  
+  # move the x axis of the plot to the top
+  scale_x_discrete(position = "top") +
+  
+  # change the angle of x axis labels and horizontal adjustment
+  theme(axis.text.x = element_text(angle = 90, hjust = 0))
+```
+
+The above code chunk is an example of a nested code that is simplied using pipe operators **%>%** from **magrittr** package, which is made avaible by loading **tidyverse** package.

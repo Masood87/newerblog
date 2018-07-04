@@ -51,3 +51,38 @@ library(visdat)                 #loads visdat package</code></pre>
 <pre class="r"><code>vis_dat(airquality)</code></pre>
 <p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 </div>
+<div id="visualize-missing-values-with-ggplot2-package" class="section level2">
+<h2>Visualize missing values with ggplot2 package</h2>
+<p>I suspect <code>vis_miss()</code> and <code>vis_dat()</code> use <strong>ggplot2</strong> under the hood because they resemble plots created with <strong>ggplot2</strong> package. Let’s attempt to use <strong>ggplot2</strong> package to recreate a similar plot <code>vis_miss()</code> created.</p>
+<p>I am going to load <strong>tidyverse</strong> package, which includes packages that we need: <strong>ggplot2</strong>, <strong>dplyr</strong>, and <strong>tidyr</strong>. So instead of loading these three packages separately, I am going to load only <strong>tidyverse</strong>.</p>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<p>Again I am going to use <strong>airquality</strong> dataset. The following chunk of code produces a plot that indicates missing values. I have left comments inside the code that explains each part of the code.</p>
+<pre class="r"><code># takes airquality data.frame and tests presence of missing values, returning a matrix of TRUE and FALSE, with TRUE indicating missing values
+is.na(airquality) %&gt;%
+  
+  # takes the matrix as argument and converts it into a data.frame object
+  data.frame() %&gt;%
+  
+  # takes the data.frame object as argument, and creates a column named obs that takes value 1 through 153 which is airquality&#39;s number of rows
+  mutate(obs = 1:nrow(.)) %&gt;%
+  
+  # takes the data.frame object with new column obs and reshape it from wide format to long format, transforming all other columns into var and is_missing columns, with exception of obs column
+  gather(var, is_missing, -obs) %&gt;%
+  
+  # takes the data.frame in long format and produces a tile plot with var column in x axis, obs column in y axis, and fill the tiles based with is_missing column values
+  ggplot(aes(x = var, y = obs, fill = is_missing)) + geom_tile() + 
+  
+  # use a black and white theme for the plot
+  theme_bw() +
+  
+  # change x and y axes titles of the plot
+  labs(x=&quot;Variables&quot;, y=&quot;Observations&quot;) +
+  
+  # move the x axis of the plot to the top
+  scale_x_discrete(position = &quot;top&quot;) +
+  
+  # change the angle of x axis labels and horizontal adjustment
+  theme(axis.text.x = element_text(angle = 90, hjust = 0))</code></pre>
+<p><img src="/post/2018-05-22-plot-missing-values_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>The above code chunk is an example of a nested code that is simplied using pipe operators <strong>%&gt;%</strong> from <strong>magrittr</strong> package, which is made avaible by loading <strong>tidyverse</strong> package.</p>
+</div>
