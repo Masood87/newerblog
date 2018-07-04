@@ -1,0 +1,24 @@
+---
+title: Build a Website with R, blogdown, Hugo, and netlify.com
+author: Masood Sadat
+date: '2018-06-08'
+slug: build-a-website-with-r-blogdown-hugo-and-netlify-com
+categories:
+  - r tips
+tags:
+  - blogdown
+---
+
+One of the coolest things I have learned in R recently is creating a website with **blogdown** package. The **blogdown** websites are created and maintained from within R mostly, which is the best part about it if you are a R user. There are many sources that provide details and reasons for using **blogdown**, so I will not dwell on that. Instead, I am going to provide a _brief and to-the-point_ tutorial on how to start your website with R and **blogdown**.
+
+## 1. Create a repository on github
+
+_Check my earlier blog on [basics of github](/2018/05/18/basics-of-github-through-command-line/)_. If you do not have a github account, visit [github.com](https://github.com) and create an account (it is free!). Once you have an account, create a repository and call it **myblog**. Creating the repository, also known as _repo_, copy that repository's url. The url should look like this: `https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git`
+
+## 2. Clone git repository
+
+The github repository link is used to clone that repo on a directory in your computer. Cloning a repo essentially means copying repo in the local computer. To clone the github repo, you have t use **Terminal** if you are on a Mac and **Command Prompt** if you are on windows, and install git if you are on windows. There are other applications, but Mac's **Terminal** and windows' **Command Prompt** are default and does not require downloading. 
+
+
+**TO BE CONTINUED...**
+

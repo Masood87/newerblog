@@ -6,10 +6,19 @@
     <description>Recent content on Masood Sadat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 08 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Build a Website with R, blogdown, Hugo, and netlify.com</title>
+      <link>/2018/06/build-a-website-with-r-blogdown-hugo-and-netlify.com/</link>
+      <pubDate>Fri, 08 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/build-a-website-with-r-blogdown-hugo-and-netlify.com/</guid>
+      <description>One of the coolest things I have learned in R recently is creating a website with blogdown package. The blogdown websites are created and maintained from within R mostly, which is the best part about it if you are a R user. There are many sources that provide details and reasons for using blogdown, so I will not dwell on that. Instead, I am going to provide a brief and to-the-point tutorial on how to start your website with R and blogdown.</description>
+    </item>
     
     <item>
       <title>A Tutorial for Analysing Survey of the Afghan People in R</title>
