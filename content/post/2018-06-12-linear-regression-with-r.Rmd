@@ -27,3 +27,9 @@ A simple linear regression using **mtcars** dataset. I want to look at how weigh
 summary(mtcars[, c("wt", "mpg")])
 plot(mtcars$wt, mtcars$mpg)
 ```
+
+It seems like heavier cars have lower mileage Next, I regress mpg on weight using linear regression.
+
+```{r message=FALSE, warning=FALSE}
+lm(mpg ~ wt, data = mtcars)
+```

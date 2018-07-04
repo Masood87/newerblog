@@ -28,4 +28,13 @@ library(plotly)</code></pre>
 ##  Max.   :5.424   Max.   :33.90</code></pre>
 <pre class="r"><code>plot(mtcars$wt, mtcars$mpg)</code></pre>
 <p><img src="/post/2018-06-12-linear-regression-with-r_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>It seems like heavier cars have lower mileage Next, I regress mpg on weight using linear regression.</p>
+<pre class="r"><code>lm(mpg ~ wt, data = mtcars)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## Coefficients:
+## (Intercept)           wt  
+##      37.285       -5.344</code></pre>
 </div>
