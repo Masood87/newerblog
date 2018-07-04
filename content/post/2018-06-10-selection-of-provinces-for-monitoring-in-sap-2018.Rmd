@@ -55,3 +55,5 @@ library(kableExtra)
 kable(head(df), format = "html", align = c("l", "c", "c", "c", "c", "l", "c")) %>% 
   kable_styling(font_size = 13)
 ```
+
+_**Monitoring Improves Data Quality.**_ Looking at the logic test failure rates by province, and disaggregated by whether the provinces are monitored or not, it becomes evident that the monitored provinces have lower logic test failure rates on average. This means, the quality of data collected at the provinces which were monitored were better comparatively. Note that the monitored provinces were chosen for monitoring because of being more problematic last year. Therefore, it is possible that the imrpovement in data quality as inferred from lower logic test failures are because of the monitoring of the fieldwork. In the following graph, logic test failure rates are compared between provinces that were monitored and provinces that were not monitored in 2017. The plot also include the average rates for the group in the form of horizontal lines.
