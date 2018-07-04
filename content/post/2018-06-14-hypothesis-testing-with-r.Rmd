@@ -52,7 +52,7 @@ ggplot(perm_slopes, aes(stat)) + geom_histogram() + # histogram distribution of 
 To contrast, let's look at the relationship between real axle ratio (`drat`) and "1/4 mile time" (`qsec`) from the same **mtcars** data, which appears to have no relationship based on observing them on a scatter plot.
 
 ```{r}
-# ggplot(mtcars, aes(drat, qsec)) + geom_point()
+ggplot(mtcars, aes(drat, qsec)) + geom_point()
 ```
 
 Fitting a linear model to estimate the linear relationship between `drat` and `qsec`, I cannot reject the null hypothesis that there is a meaningful relationship between the two variables. Note the statistics and p-value values.

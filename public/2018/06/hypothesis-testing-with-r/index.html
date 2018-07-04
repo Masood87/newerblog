@@ -185,7 +185,8 @@ obs_slope &lt;- tidy(lm(mpg ~ wt, data = mtcars)) %&gt;% .[2,2] # observed slope
 <div id="a-not-meaningful-relationship" class="section level2">
 <h2>A Not-Meaningful Relationship</h2>
 <p>To contrast, let’s look at the relationship between real axle ratio (<code>drat</code>) and “1/4 mile time” (<code>qsec</code>) from the same <strong>mtcars</strong> data, which appears to have no relationship based on observing them on a scatter plot.</p>
-<pre class="r"><code># ggplot(mtcars, aes(drat, qsec)) + geom_point()</code></pre>
+<pre class="r"><code>ggplot(mtcars, aes(drat, qsec)) + geom_point()</code></pre>
+<p><img src="/post/2018-06-14-hypothesis-testing-with-r_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <p>Fitting a linear model to estimate the linear relationship between <code>drat</code> and <code>qsec</code>, I cannot reject the null hypothesis that there is a meaningful relationship between the two variables. Note the statistics and p-value values.</p>
 <pre class="r"><code># tidy(lm(qsec ~ drat, data = mtcars))
 # obs_slope &lt;- tidy(lm(qsec ~ drat, data = mtcars)) %&gt;% .[2,2]</code></pre>
