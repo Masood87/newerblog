@@ -101,3 +101,13 @@ Based on last year's results, the best indicator for the data quality (represent
 
 _**There are limitations.**_ It is important to acknowledge that the available data does not provide a complete picture and predict the quality of the fieldwork. Nonetheless, last year's experience provides the best available insight into this year's work to make an informed decision regarding the selection of provinces for monitoring purposes. 
 
+```{r message=FALSE, warning=FALSE, echo=FALSE}
+# keep provinces with logic test failures
+filter(df, `Percent Failed at Logic Test` > 0) %>% 
+  
+  # reorder provinces based on their failure rates
+  mutate(Provinces = fct_reorder(factor(Provinces), `Percent Failed at Logic Test`)) %>% 
+  
+  # plot horizontal
+  ggplot(aes(Provinces, `Percent Failed at Logic Test`, fill = `Province Monitored`)) + geom_col() + coord_flip() + labs(fill = "") + theme_linedraw() + theme(legend.position = "top") + geom_vline(xintercept = 10.5, col = "navy")
+```
