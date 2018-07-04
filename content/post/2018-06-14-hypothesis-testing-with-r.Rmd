@@ -43,6 +43,6 @@ obs_slope <- tidy(lm(mpg ~ wt, data = mtcars)) %>% .[2,2] # observed slope
 Then, plot the permuted slopes using a histogram and add the observed slope as a vertical line. I can see the observed slope does not overlap even one of the 1000 permuted slopes, which is a visual way of finding that probability of observing null hypothesis is less than 0.1%. This means, I can reject the null hypothesis.
 
 ```{r message=FALSE, warning=FALSE}
-# ggplot(perm_slopes, aes(stat)) + geom_histogram() + # histogram distribution of slope of null hypothesis
-  # geom_vline(xintercept = obs_slope, color = "red") # add a vertical line for observed slope
+ggplot(perm_slopes, aes(stat)) + geom_histogram() + # histogram distribution of slope of null hypothesis
+  geom_vline(xintercept = obs_slope, color = "red") # add a vertical line for observed slope
 ```

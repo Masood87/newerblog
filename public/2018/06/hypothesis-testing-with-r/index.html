@@ -178,8 +178,9 @@ perm_slopes &lt;- mtcars %&gt;%
 
 obs_slope &lt;- tidy(lm(mpg ~ wt, data = mtcars)) %&gt;% .[2,2] # observed slope</code></pre>
 <p>Then, plot the permuted slopes using a histogram and add the observed slope as a vertical line. I can see the observed slope does not overlap even one of the 1000 permuted slopes, which is a visual way of finding that probability of observing null hypothesis is less than 0.1%. This means, I can reject the null hypothesis.</p>
-<pre class="r"><code># ggplot(perm_slopes, aes(stat)) + geom_histogram() + # histogram distribution of slope of null hypothesis
-  # geom_vline(xintercept = obs_slope, color = &quot;red&quot;) # add a vertical line for observed slope</code></pre>
+<pre class="r"><code>ggplot(perm_slopes, aes(stat)) + geom_histogram() + # histogram distribution of slope of null hypothesis
+  geom_vline(xintercept = obs_slope, color = &quot;red&quot;) # add a vertical line for observed slope</code></pre>
+<p><img src="/post/2018-06-14-hypothesis-testing-with-r_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 
 
