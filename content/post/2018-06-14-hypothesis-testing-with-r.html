@@ -17,4 +17,8 @@ tags:
 <pre class="r"><code>library(ggplot2)
 ggplot(mtcars, aes(wt, mpg)) + geom_point()</code></pre>
 <p><img src="/post/2018-06-14-hypothesis-testing-with-r_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Fit a linear model to estimate the relationship between weight and mpg, and tidy the output. Looking at the statistics and p-value, I can reject the null hypothesis (no relationship).</p>
+<pre class="r"><code>library(broom)
+library(dplyr)
+# tidy(lm(mpg ~ wt, data = mtcars))</code></pre>
 </div>
