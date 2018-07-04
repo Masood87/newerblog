@@ -101,9 +101,9 @@ Masood Sadat
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         
-                            <a class="dropdown-item" href="/">English</a>
-                        
                             <a class="dropdown-item" href="/es/">Español</a>
+                        
+                            <a class="dropdown-item" href="/">English</a>
                         
                     </div>
                 </li>
@@ -182,6 +182,10 @@ access_secret &lt;- &quot;YOUR_ACCESS_SECRET&quot;</code></pre>
 <pre><code>## [1] &quot;Using direct authentication&quot;</code></pre>
 <pre><code>## Warning in strptime(x, fmt, tz = &quot;GMT&quot;): unknown timezone &#39;default/Asia/
 ## Kabul&#39;</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Collect tweets of your interest. For example, I want to collect 500 tweets that used <strong>#Afghanistan</strong>. That simple!</li>
+</ol>
+<pre class="r"><code>tw_afghanistan &lt;- searchTwitteR(searchString = &quot;#Afghanistan&quot;, n = 500)</code></pre>
 
 
     
