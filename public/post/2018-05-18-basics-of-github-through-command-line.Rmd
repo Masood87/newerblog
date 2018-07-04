@@ -156,7 +156,7 @@ git push
 
 Here is a screen shot of the process. After `git add`, there is `git commit` and finally `git push`. Now the files are synchronized with github.com
 
-![](/post/Learn_to_git_files/git commit and push.png){width=100%}
+![](~/Documents/GitHub/blog/static/post/Learn_to_git_files/git commit and push.png){width=100%}
 
 # Workflow
 
