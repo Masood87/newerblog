@@ -177,7 +177,7 @@ This document is a brief primer on using go templates.
         <article class="blog-post">
     <header>
         <h2 class="blog-post-title">
-            <a class="text-dark" href="/2014/04/getting-started-with-hugo/">Getting Started with Hugo</a>
+            <a class="text-dark" href="/2014/04/hugo-template-primer/">(Hu)go Template Primer</a>
         </h2>
         
 
@@ -187,7 +187,7 @@ This document is a brief primer on using go templates.
         Apr 2, 2014
     
     
-        by <span rel="author">John Doe</span>
+        by <span rel="author">Masood Sadat</span>
     
 </div>
 
@@ -199,9 +199,13 @@ This document is a brief primer on using go templates.
     
         <a class="badge badge-primary" href="/tags/golang">golang</a>
     
-        <a class="badge badge-primary" href="/tags/hugo">hugo</a>
+        <a class="badge badge-primary" href="/tags/templates">templates</a>
+    
+        <a class="badge badge-primary" href="/tags/themes">themes</a>
     
         <a class="badge badge-primary" href="/tags/development">development</a>
+    
+        <a class="badge badge-primary" href="/tags/demo">demo</a>
     
 </div>
 
@@ -216,14 +220,10 @@ This document is a brief primer on using go templates.
 </div>
 
     </header>
-    Step 1. Install Hugo Goto hugo releases and download the appropriate version for your os and architecture.
-Save it somewhere specific as we will be using it in the next step.
-More complete instructions are available at installing hugo
-Step 2. Build the Docs Hugo has its own example site which happens to also be the documentation site you are reading right now.
-Follow the following steps:
- Clone the hugo repository Go into the repo Run hugo in server mode and build the docs Open your browser to http://localhost:1313  Corresponding pseudo commands:
+    Hugo uses the excellent go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in go templates.
+This document is a brief primer on using go templates.
     <p></p>
-    <a href="/2014/04/getting-started-with-hugo/">Read More →</a>
+    <a href="/2014/04/hugo-template-primer/">Read More →</a>
 </article>
     
 
@@ -338,12 +338,25 @@ Follow the following steps:
                 </li>
             
         
-        <li class="page-item disabled">
-            <a class="page-link" href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+            
+            
+            
+            
+                
+                
+            
+            
+                <li class="page-item ">
+                    <a class="page-link" href="/post/page/4/">4</a>
+                </li>
+            
+        
+        <li class="page-item ">
+            <a class="page-link" href="/post/page/4/" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
         </li>
         
             <li class="page-item">
-                <a class="page-link" href="/post/page/3/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+                <a class="page-link" href="/post/page/4/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
             </li>
         
     </ul>
@@ -372,15 +385,15 @@ Follow the following steps:
         </li>
         
         <li>
+            <a href="/2018/05/perceptions-about-electricity-in-afghanistan-insights-from-the-survey-of-the-afghan-people/">Perceptions About Electricity in Afghanistan: Insights From the Survey of the Afghan People</a>
+        </li>
+        
+        <li>
             <a href="/2015/07/hello-r-markdown/">Hello R Markdown</a>
         </li>
         
         <li>
             <a href="/2015/01/erster-artikel/">Erster Artikel!</a>
-        </li>
-        
-        <li>
-            <a href="/2015/01/first-post/">First post!</a>
         </li>
         
     </ol>
@@ -395,6 +408,8 @@ Follow the following steps:
         
         <h4>Categories</h4>
         <p>
+            
+            <a class="badge badge-primary" href="/categories/afghanistan">afghanistan</a>
             
             <a class="badge badge-primary" href="/categories/development">development</a>
             
@@ -411,9 +426,13 @@ Follow the following steps:
         <h4>Tags</h4>
         <p>
             
+            <a class="badge badge-primary" href="/tags/afghansurvey">afghansurvey</a>
+            
             <a class="badge badge-primary" href="/tags/demo">demo</a>
             
             <a class="badge badge-primary" href="/tags/development">development</a>
+            
+            <a class="badge badge-primary" href="/tags/electricity">electricity</a>
             
             <a class="badge badge-primary" href="/tags/go">go</a>
             

@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>/2018/05/perceptions-about-electricity-in-afghanistan-insights-from-the-survey-of-the-afghan-people/</loc>
+    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2015/07/hello-r-markdown/</loc>
     <lastmod>2015-07-23T21:13:14-05:00</lastmod>
   </url>
@@ -92,7 +97,20 @@
   </url>
   
   <url>
+    <loc>/categories/afghanistan/</loc>
+    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/afghansurvey/</loc>
+    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
+    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -166,6 +184,12 @@
                 hreflang="en"
                 href="/categories/development/"
                 />
+  </url>
+  
+  <url>
+    <loc>/tags/electricity/</loc>
+    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -309,7 +333,7 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2015-01-05T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"

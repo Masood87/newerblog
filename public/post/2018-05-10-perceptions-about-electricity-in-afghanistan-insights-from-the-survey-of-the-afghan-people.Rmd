@@ -1,0 +1,200 @@
+---
+title: 'Perceptions About Electricity in Afghanistan: Insights From the Survey of
+  the Afghan People'
+author: Masood Sadat
+date: '2018-05-10'
+slug: perceptions-about-electricity-in-afghanistan-insights-from-the-survey-of-the-afghan-people
+categories:
+  - afghanistan
+tags:
+  - AfghanSurvey
+  - electricity
+---
+
+
+```{r packages, include=FALSE, warning=FALSE}
+require(tidyverse)
+require(feather)
+require(survey)
+require(plotly)
+require(maptools)
+```
+```{r utilityVars, include=FALSE, message=FALSE}
+sap <- read_feather("~/Documents/SAP 2017/Data/TAF Merge W1-12 Client Version v5.1.feather")
+# awareness of electricity project in local area
+sap$elecProj <- as.character(sap$x11ad)
+sap$elecProj[is.na(sap$elecProj)] <- as.character(sap$x11as[!is.na(sap$x11as)])
+sap$elecProj[sap$elecProj=="yes"] <- "Yes"
+sap$elecProj[sap$elecProj=="no"] <- "No"
+sap$elecProj[sap$elecProj %in% c("Don't know", "Refused", "refused / don't know (vol.)")] <- "Refused / don't know (vol.)"
+sap$elecProj <- factor(sap$elecProj, levels = c("Yes", "No", "Refused / don't know (vol.)"), ordered = T)
+
+sap.w <- svydesign(id = ~1, data = sap[!is.na(sap$MergeWgt10),], weights = ~MergeWgt10)
+shp <- readShapePoly("~/Desktop/ShinyApps/Province mapmaker/AFG_adm1.shp")
+```
+
+### About
+
+This analysis uses the Survey of the Afghan People data, an annual survey of perceptions from a nationally representative sample of Afghans. The survey has collected attitudes and perceptions uninterruptedly since 2006, with over 97,000 Afghans taking part. The the latest survey report [here][report], or download the raw data [here][download].
+<br /><br />
+
+
+### Awareness of Government Supplied Electricity Projects
+```{r include=FALSE}
+aware17 <- data.frame(prop.table(svytable(~elecProj+m8, sap.w),2)) %>% filter(m8==2017,elecProj=="Yes") %>% select(Freq) %>% as.numeric %>% {.*100} %>% round(1)
+aware09 <- data.frame(prop.table(svytable(~elecProj+m8, sap.w),2)) %>% filter(m8==2009,elecProj=="Yes") %>% select(Freq) %>% as.numeric %>% {.*100} %>% round(1)
+```
+
+> **Key Questions**: _**x11as.** I am going to read a list of projects that may or may not have been implemented in your area. Please tell me if there has been this type of project in your area in the last 12 months… Government supplied electricity. **x11ad.** Speaking of the past 12 months, do you know of, heard of any project or program, implemented with the foreign aid in this area, district, in the following fields?... Electricity supply_
+
+
+Since 2014, the Survey asks its respondents whether they are aware of implementation of a government supplied electricity project in their local area. In 2017, very few (`r aware17`%) reported awareness of electricity supply projects in their local areas at the country level, which is down from `r aware09` percent in 2009 in awareness of electricity projects. Furthermore, as majority of electricity projects have taken place in urban centers, the awareness of awareness of electricity projects is higher among urban residents than rural dwellers. The picture is relatively the same for Kabul province, except the awareness of projects was considerably higher in past years, particularly in Kabul city (urban) of the province, which might indicate more implementation of electricity projects. the awareness of new electricity supply projects have been decreasing in Kabul city, while in the rural areas this is increasing. The following graph compares the reported awareness of electricity projects in Kabul province and the national (including Kabul) disaggregated by urban and rural populations.
+
+```{r echo=FALSE, warning=FALSE, fig.height=3}
+x <- svytable(~elecProj+m8+m7+m6b, sap.w) %>% prop.table(c(2,3,4)) %>% data.frame %>% 
+  mutate(m8 = as.numeric(as.character(m8))) %>% filter(elecProj=="Yes" & !is.na(Freq)) %>% select(-elecProj)
+y <- svytable(~elecProj+m8+m6b, sap.w) %>% prop.table(c(2,3)) %>% data.frame() %>% filter(elecProj=="Yes") %>% mutate(m7 = "National") %>% select(-elecProj)
+x <- rbind(x, y) %>% mutate(m8 = as.numeric(m8))
+
+ggplot(x[x$m7 %in% c("Kabul", "National"),], aes(m8, Freq, col = m6b)) + geom_line(size = 1) + theme_bw() + facet_wrap(~m7) +
+  labs(title = "Awareness of Electricity Projects in the Area", x = "", y = "Ratio", col = "") +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5), plot.title = element_text(hjust = .5)) +
+  scale_x_continuous(breaks=unique(x$m8))
+```
+<br /><br />
+
+The following graph shows awareness of implementation of electricity supply projects by region, with each line representing one province. This graph illustrates regional differences with provinces in the Central/Hazarajat, South East and West regions report considerably lower levels of awareness of electricity supply projects, than provinces in the North West and Central/Kabul.
+
+```{r echo=FALSE, warning=FALSE, fig.height=4}
+svytable(~elecProj+m8+m7+m4, sap.w) %>% prop.table(c(2,3,4)) %>% data.frame %>% 
+  mutate(m8 = as.numeric(as.character(m8))) %>% filter(elecProj=="Yes" & !is.na(Freq)) %>%
+  ggplot(aes(m8, Freq, col = m7)) + geom_line() + facet_wrap(~m4, nrow = 2) + theme_bw() + 
+  labs(title = "Awareness of Electricity Projects in the Area, by Region", x = "", y = "Ratio") + 
+  theme(legend.position="none", axis.text.x = element_text(angle = 90, vjust = .5), plot.title = element_text(hjust = .5)) + 
+  scale_x_continuous(breaks=unique(x$m8))
+```
+<br /><br />
+
+
+### Perception of Improved Electricity Supply
+> **Key Question**: _**x14g.** Compared to two years ago, would you say that situation for your househ = old has gotten better, remained the same or gotten worse with respect to the following?... Electric supply_
+
+Perceptions about electricity supply getting "better" or "worse" is subjective to the experience of respondents with the service. For example, depending on the *baseline* situation (e.g. excellent electricity supply or poor electricity supply), changes since last year can indicate any quality of electricity supply. Nonetheless, this data can reveal other type of information that can be valuable. For example, it can indicate the quality of electricity supply with respect to expectations, and regional patterns in electricity supply.
+
+```{r include=FALSE}
+(temp <- svytable(~x14g+m8+m7, sap.w) %>% prop.table(c(2,3)) %>% data.frame() %>% {.[.$m7=="Kabul",]}) %>% arrange(x14g)
+eBetter <- temp %>% {.[.$m8==2017 & .$x14g=="Better", 4]} %>% {.*100} %>% round(1)
+eBetter10 <- temp %>% {.[.$m8==2010 & .$x14g=="Better", 4]} %>% {.*100} %>% round(1)
+eWorse <- temp %>% {.[.$m8==2017 & .$x14g=="Worse", 4]} %>% {.*100} %>% round(1)
+eMost <- svytable(~x14g+m8, sap.w) %>% prop.table(2) %>% data.frame() %>% filter(m8==2017, x14g %in% c("Worse", "The Same")) %>% {sum(.$Freq)*100} %>% round(1) %>% paste0(".0")
+```
+
+Looking at Kabul province only, only `r eBetter`% said the electricity supply has improved in 2017 since last year, which indicates a continued decline since 2010 when about two-third (`r eBetter10`%) of Kabul respondents had reported improvement in electricity supply. Furthermore, it appears that majority of the improvements bas been mainly driven by the urban areas/Kabul city. Compared to the the national average, residents of Kabul province have had better electricity supply.
+
+```{r echo=FALSE, warning=FALSE, fig.height=3}
+svytable(~x14g+m8+m7+m6b, sap.w) %>% prop.table(c(2,3,4)) %>% data.frame %>% filter(!is.na(Freq)) %>% mutate(m8 = as.numeric(as.character(m8)), m6b = paste(m7, m6b)) %>% 
+  filter(m7=="Kabul") %>% bind_rows(svytable(~x14g+m8, sap.w) %>% prop.table(2) %>% data.frame %>% mutate(m6b = "National", m8 = as.numeric(as.character(m8)))) %>% 
+  ggplot(aes(m8, Freq, fill = x14g)) + geom_area() + facet_wrap(~m6b) + theme_bw() + 
+  labs(title = "Perception of Electricity Supply Since Last Year", x = "", y = "Ratio", fill = "") +
+  scale_x_continuous(breaks=unique(x$m8)) + theme(axis.text.x = element_text(angle = 90, vjust = .5), plot.title = element_text(hjust = .5))
+```
+<br /><br />
+
+At national level, most Afghans (`r eMost`%) have expressed either electricity supply has gotten worse or remained the same. Furthermore, reported awareness of implementation of electricity projects does appear to have a meaningful relationship with the perception of electricity supply, suggesting the subjective nature of the perception. The following two graphs visualizes the percent of respondents who reported their electricity has gotten "BETTER" and "WORSE" separated by province and region.
+
+```{r echo=FALSE, warning=FALSE, fig.height=4}
+x <- svytable(~x14g+m8+m7+m4, sap.w) %>% prop.table(c(2,3,4)) %>% data.frame() %>% filter(!is.na(Freq)) %>% mutate(m8 = as.numeric(as.character(m8)))
+ggplot(x[x$x14g=="Better",], aes(m8, Freq, col = m7)) + geom_line() + facet_wrap(~m4, nrow = 2) + theme_bw() + 
+  labs(title = "Perception of IMPROVED Electricity Supply, by Region", x = "", y = "Ratio") + 
+  theme(legend.position="none", axis.text.x = element_text(angle = 90, vjust = .5), plot.title = element_text(hjust = .5)) + 
+  scale_x_continuous(breaks=unique(x$m8))
+ggplot(x[x$x14g=="Worse",], aes(m8, Freq, col = m7)) + geom_line() + facet_wrap(~m4, nrow = 2) + theme_dark() + 
+  labs(title = "Perception of WORSENED Electricity Supply, by Region", x = "", y = "Ratio") + 
+  theme(legend.position="none", axis.text.x = element_text(angle = 90, vjust = .5), plot.title = element_text(hjust = .5)) + 
+  scale_x_continuous(breaks=unique(x$m8))
+```
+<br /><br />
+
+
+### Access to Electricity
+> **Key Question**: _**x352c.** Please tell me if your family has access to [insert item] in your area? Do you have access always, often, seldom, or never?... Electricity_
+
+```{r include=FALSE}
+(nvrRrly <- svytable(~x352c, sap.w) %>% prop.table() %>% data.frame() %>% {.[.$x352c %in% c("Rarely", "Never"), 2]} %>% sum() %>% {.*100} %>% round(1))
+(alwz <- svytable(~x352c, sap.w) %>% prop.table() %>% data.frame() %>% {.[.$x352c %in% c("Always", "Often"), 2]} %>% sum() %>% {.*100} %>% round(1))
+(smt <- svytable(~x352c, sap.w) %>% prop.table() %>% data.frame() %>% {.[.$x352c %in% c("Sometimes"), 2]} %>% sum() %>% {.*100} %>% round(1))
+
+ruralNvr <- svytable(~m7+x352c+m6b, sap.w) %>% prop.table(c(1,3)) %>% data.frame() %>% 
+  filter(m7=="Kabul", x352c=="Never", m6b=="Rural") %>% select(Freq) %>% {.*100} %>% round(1)
+urbanAlwOft <- svytable(~m7+x352c+m6b, sap.w) %>% prop.table(c(1,3)) %>% data.frame() %>% 
+  filter(m7=="Kabul", x352c %in% c("Always","Often"), m6b=="Urban") %>% select(Freq) %>% sum() %>% {.*100} %>% round(1)
+```
+
+In 2014, the Survey asked respondents to report how often they have access to electricity. Overall, close to half (`r nvrRrly`%) of respondents reported having never or rarely electricity access, while only a third (`r alwz`%) reported having always or often electricity access, and the remaining `r smt` percent reported sometimes electricity access. In Kabul province, where respondents reported higher electricity access, more than half (`r ruralNvr`%) of rural respondents reported they never had access to electricity, while most (`r urbanAlwOft`%) of urban residents had always or often access to electricity. A similar pattern was also noted with the awareness of electricity projects in Kabul province in the previous section.
+
+```{r echo=FALSE, warning=FALSE, fig.height=3}
+svytable(formula = ~m7+x352c+m6b, sap.w) %>% addmargins() %>% prop.table(c(1, 3)) %>% data.frame() %>% 
+  filter(x352c!="Sum") %>% mutate(Freq = Freq*2) %>% filter(m7 %in% c("Kabul", "Sum"), m6b != "Sum") %>% {mutate(., m7 = recode(.$m7, Sum = "National"))} %>%
+  ggplot(aes(x352c, Freq, fill = m7)) + geom_col(position = "dodge") + theme_bw() + facet_wrap(~m6b) + 
+  labs(title = "Access to Electricity", x = "", y = "Ratio", fill = "") +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1), plot.title = element_text(hjust = .5))
+```
+<br /><br />
+
+Afghanistan relies heavily on imported electricity, and provinces in the North, Kabul, Wardak, Herat, and Nimroz who reported having better electricity are also provinces that import electricity. The following map and graph visualizes the share of respondents who reported having always electricity access in 2014 (this question was asked only in that year).
+
+```{r echo=FALSE, warning=FALSE, fig.align="center"}
+svytable(~m7+x352c+m4, sap.w) %>% prop.table(c(1,3)) %>% data.frame() %>% filter(!is.na(Freq), x352c %in% c("Always", "Often", "Sometimes")) %>% 
+  ggplot(aes(m7, Freq, fill = x352c)) + geom_col() + facet_wrap(~m4, nrow=2, scales = "free_x") + theme_bw() +
+  labs(title = "Access to Electricity, by Region", x = "", y = "Ratio", fill = "") +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1), plot.title = element_text(hjust = .5))
+
+y <- svytable(~m7+x352c, sap.w) %>% prop.table(1) %>% {.*100} %>% data.frame() %>% filter(x352c %in% c("Always")) %>% group_by(m7) %>% summarise(Freq = sum(Freq)) %>% 
+  select(m7, Freq) %>% {mutate(., m7 = recode(.$m7, "Daikundi" = "Daykundi", "Helmand" = "Hilmand", "Herat" = "Hirat", "Sar-i-Pul" = "Sari Pul", "Paktia" = "Paktya"))}
+shp2 <- merge(shp, y, by.x = "NAME_1", by.y = "m7")
+colorRampPalette(c("white", "green"))(length(unique(shp2@data$NAME_1))) %>% palette()
+cols <- shp2@data$Freq
+plot(shp2, col = cols, main = '"Always" Access Electricity') # , cex.main = 1.2, font.main = 1 --control font of title with cex.main and font.main
+```
+<br /><br />
+
+### Satisfaction with Electricity
+> **Key Question:** _**x353c.** Next I would like you to rate your satisfaction with the quality of goods and services in your area. For each item I list, please tell me if you are very satisfied, somewhat satisfied, somewhat dissatisfied or very dissatisfied with the quality of the good or service... Electricity_
+
+```{r include=FALSE}
+kblSatis <- svytable(~x353c+m8+m7+m6b, sap.w) %>% prop.table(c(2,3,4)) %>% data.frame() %>% 
+  filter(m7=="Kabul") %>% 
+  spread(x353c, Freq, -2:4) %>% 
+  mutate(Satisfied = `Very satisfied`+`Somewhat satisfied`, Dissatisfied = `Somewhat dissatisfied`+`Very dissatisfied`) %>%
+  select(1:3, 10:11); head(kblSatis)
+half <- svytable(~x352c+m8, sap.w) %>% prop.table(2) %>% data.frame() %>% filter(x352c %in% c("Rarely", "Never")) %>% {sum(.$Freq)*100} %>% round(1)
+most <- svytable(~x353c+m8, sap.w) %>% prop.table(2) %>% data.frame() %>% filter(m8==2014, x353c %in% c("Very dissatisfied", "Somewhat dissatisfied")) %>% {sum(.$Freq)*100} %>% round(1)
+```
+
+In 2014 and 2015, the Survey asked respondents to rate their satisfaction with electricity. Overall, the satisfaction with electricity appears to have strong positive correlation with the access to electricity. As close to half (`r half`%) of Afghans reported never or rarely electricity access, most (`r most`%) are also dissatisfied with the electricity. This relationship is depicted in the graph below--the darker shade represent the larger number of respondents choosing that response. 
+
+```{r echo=FALSE, warning=FALSE, fig.align="center", message=FALSE, fig.width=4, fig.height=4}
+svytable(~x353c+x352c, sap.w) %>% prop.table() %>% data.frame() %>% 
+  ggplot(aes(x353c, fct_rev(x352c), fill = -Freq)) + geom_raster(interpolate = T, show.legend = F) + 
+  scale_fill_gradient(low = "#0000FFFF", high = "#FFFFFFFF") + theme_classic() +
+  theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 0), axis.text.y = element_text(angle = 0, hjust = 1)) +
+  scale_x_discrete(position = "top") + labs(x = "Satisfaction with Electricity", y = "Access to Electricity")
+```
+
+
+While residents of Kabul province reported more satisfaction than the national level, urban residents in Kabul was more satisfied with electricity than rural residents--this is similar to the access to electricity.
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+svytable(~x353c+m8+m7+m6b, sap.w) %>% prop.table(c(2,3,4)) %>% {.*100} %>% data.frame() %>% filter(m7=="Kabul") %>% mutate(m6b = paste(m7, m6b)) %>% 
+  bind_rows(svytable(~x353c+m8, sap.w) %>% prop.table(2) %>% {.*100} %>% data.frame() %>% mutate(m6b = "National")) %>% 
+  ggplot(aes(x353c, Freq, fill = m8)) + geom_col(position = "dodge") + facet_wrap(~m6b) + theme_bw() + 
+  labs(x = "", fill = "", y = "Ratio", title = "Satisfaction with Electricity") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = .5, hjust = 1), plot.title = element_text(hjust = .5))
+```
+
+
+
+[report]: https://asiafoundation.org/where-we-work/afghanistan/survey/
+[download]: https://asiafoundation.org/where-we-work/afghanistan/survey/download-data-form/
+
+

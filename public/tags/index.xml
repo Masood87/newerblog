@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Masood Sadat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 May 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Afghansurvey</title>
+      <link>/tags/afghansurvey/</link>
+      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/afghansurvey/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Demo</title>
@@ -26,6 +35,15 @@
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
       <guid>/tags/development/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Electricity</title>
+      <link>/tags/electricity/</link>
+      <pubDate>Thu, 10 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/electricity/</guid>
       <description></description>
     </item>
     
