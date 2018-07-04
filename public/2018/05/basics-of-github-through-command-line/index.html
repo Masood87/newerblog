@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<meta property="og:title" content="Basics of GitHub Through Command Line" />
+<meta property="og:description" content="Create account and repository on github.com Go to github.com and create an account. Once, account is created, create a repository in Repositories tab and click on the green button New. The following page opens.
+ NOTE: A repository is something like a project folder.
+   Copy repository URL After a new repository is created, copy the clone url link. This link is used to clone the repository from server to the computer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/2018/05/basics-of-github-through-command-line/" />
+
+
+
+<meta property="article:published_time" content="2018-05-18T00:00:00&#43;00:00"/>
+
+<meta property="article:modified_time" content="2018-05-18T00:00:00&#43;00:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Basics of GitHub Through Command Line"/>
+<meta name="twitter:description" content="Create account and repository on github.com Go to github.com and create an account. Once, account is created, create a repository in Repositories tab and click on the green button New. The following page opens.
+ NOTE: A repository is something like a project folder.
+   Copy repository URL After a new repository is created, copy the clone url link. This link is used to clone the repository from server to the computer."/>
+
+
+
+    <link rel="canonical" href="/2018/05/basics-of-github-through-command-line/">
+
+    <title>
+      
+        Basics of GitHub Through Command Line | Masood Sadat
+      
+    </title>
+
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+
+    <link href="/css/style.css" rel="stylesheet">
+
+    
+
+    
+
+    
+  </head>
+  <body>
+    
+      <header class="blog-header">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+    alt="">
+Masood Sadat
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav">
+                
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/">Home</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/about/">About</a>
+                    
+                </li>
+                
+                <li class="nav-item ">
+                    
+                        <a class="nav-link" href="/contact/">Contact</a>
+                    
+                </li>
+                
+            </ul>
+            
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Language
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        
+                            <a class="dropdown-item" href="/es/">Español</a>
+                        
+                            <a class="dropdown-item" href="/">English</a>
+                        
+                    </div>
+                </li>
+            </ul>
+            
+        </div>
+    </nav>
+</header>
+    
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-8 blog-main">
+
+          
+
+<header>
+    <h2 class="blog-post-title">
+        <a class="text-dark" href="/2018/05/basics-of-github-through-command-line/">Basics of GitHub Through Command Line</a>
+    </h2>
+    
+
+
+<div class="blog-post-date text-secondary">
+    
+        May 18, 2018
+    
+    
+        by <span rel="author">Masood Sadat</span>
+    
+</div>
+
+    
+<div class="blog-post-tags text-secondary">
+    <strong>Tags:</strong>
+    
+        <a class="badge badge-primary" href="/tags/git">git</a>
+    
+</div>
+
+    
+<div class="blog-post-categories text-secondary">
+    <strong>Categories:</strong>
+    
+        <a class="badge badge-primary" href="/categories/git">git</a>
+    
+</div>
+
+    <hr>
+</header>
+<article class="blog-post">
+    <div id="create-account-and-repository-on-github.com" class="section level1">
+<h1>Create account and repository on github.com</h1>
+<p>Go to <a href="https://github.com"><code>github.com</code></a> and create an account. Once, account is created, create a repository in <code>Repositories</code> tab and click on the green button <code>New</code>. The following page opens.</p>
+<blockquote>
+<p><em><strong>NOTE:</strong> A repository is something like a project folder.</em></p>
+</blockquote>
+<div class="figure">
+<img src="/post/Learn_to_git_files/create%20repository.png" style="width:100.0%" />
+
+</div>
+</div>
+<div id="copy-repository-url" class="section level1">
+<h1>Copy repository URL</h1>
+<p>After a new repository is created, copy the <code>clone url</code> link. This link is used to clone the repository from server to the computer.</p>
+<div class="figure">
+<img src="/post/Learn_to_git_files/copy%20clone%20url.png" style="width:100.0%" />
+
+</div>
+</div>
+<div id="set-working-directory" class="section level1">
+<h1>Set working directory</h1>
+<p>On Mac computers, open <strong>Terminal</strong> (on windows open <strong>Command Prompt</strong> aka <strong>cmd</strong>). I am not an expert on <strong>Terminal</strong> and it is almost like a black box to me at this point. But for purpose of using <strong>git</strong>, it is not difficult and we need to know only a few commands.</p>
+<blockquote>
+<p><em><strong>NOTE:</strong> To find <strong>Terminal</strong> on Mac, search spotlight OR go to <code>Applications &gt; Utilities &gt; Terminal</code>. To find <strong>Command Prompt</strong> on Windows, you can either find it in Accessories Folder in Start Menu, or find it in <code>C:\Windows\System32\cmd.exe</code> </em></p>
+</blockquote>
+<p>The following are important commands for working with directory:</p>
+<ul>
+<li>Check working directory: <code>pwd</code> (or <code>cd ,</code> for windows)</li>
+<li>Use <code>cd</code> to change working directory.
+<ul>
+<li>Go up one folder: <code>cd ..</code></li>
+<li>Go into a folder: <code>cd ~/documents/github</code></li>
+</ul></li>
+<li>Check content of workding directory: <code>ls</code> (or <code>dir</code> for windows)</li>
+<li>Make a new folder: <code>mkdir [foldername]</code></li>
+</ul>
+<p>For our project, we go to our desired directory and create a new folder if necessary.</p>
+<p>So, first thing in the <code>terminal</code>, we check the working directory</p>
+<pre class="r"><code>pwd</code></pre>
+<p>Then, we change the working directory to where we want. I have already alread a folder called <strong>GitHub</strong> in <strong>Documents</strong>, so I set the working directory there. You can either create a similar folder, or set an existing folder as your working directory.</p>
+<pre class="r"><code>cd ~/documents/github</code></pre>
+<p>We check the content of our working directory.</p>
+<pre class="r"><code>ls</code></pre>
+<p>Here is a screen shot of the process. As you can see, there are already three folders in the working directory.</p>
+<div class="figure">
+<img src="/post/Learn_to_git_files/set%20working%20directory.png" style="width:100.0%" />
+
+</div>
+</div>
+<div id="clone-the-repository-to-computer" class="section level1">
+<h1>Clone the repository to computer</h1>
+<p>In the <code>terminal</code>, clone the repository in the working directory (i.e. from step 3: <code>~/Documents/GitHub/</code>). To do that, we use <code>git clone</code> with the url in the terminal command line.</p>
+<pre class="r"><code>git clone https://github.com/Masood87/Learn-how-to-github.git</code></pre>
+<blockquote>
+<p><em><strong>NOTE:</strong> <code>git clone</code> is the first of five git commands we learn here. <code>git clone</code> essentially clones the repository into your working directory (in our case it is <code>~/Documents/GitHub/</code>).</em></p>
+</blockquote>
+<p>Type <code>ls</code> in the <code>terminal</code> after <code>git clone</code> to see the cloned files.</p>
+<pre class="r"><code>ls</code></pre>
+<p>Next, change your working directory to the cloned folder <code>Learn-how-to-github</code></p>
+<pre class="r"><code>cd Learn-how-to-github</code></pre>
+<p>You can check again the content of <code>Learn-how-to-github</code></p>
+<pre class="r"><code>ls</code></pre>
+<p>Here is a screen shot of the process. As you can see, <code>Learn-how-to-github</code> is added and there is nothing inside it yet.</p>
+<div class="figure">
+<img src="/post/Learn_to_git_files/git%20clone.png" style="width:100.0%" />
+
+</div>
+</div>
+<div id="make-a-change-to-repository-and-git-add" class="section level1">
+<h1>Make a change to repository and <code>git add</code></h1>
+<p>After repository is cloned, we either add new files or modify an existing file. In this case, we add add a new folder with four files. In the finder, I add a folder called <code>screenshots</code> with four <code>.png</code> files in them.</p>
+<p>In the terminal, we check the status of the cloned folder using <code>git status</code>.</p>
+<blockquote>
+<p><em><strong>NOTE:</strong> <code>git status</code> is used to check any changes including modification of codes inside a file (if any).</em></p>
+</blockquote>
+<pre class="r"><code>git status</code></pre>
+<p>The changes will be noted in red font. We either <em>accept</em> to update the changes in the repository or <em>ignore</em> it. To <em>accept</em> and upload the changes, there are <strong>three</strong> steps:</p>
+<ul>
+<li><code>git add</code> to ….</li>
+<li><code>git commit</code> to ….</li>
+<li>and <code>git push</code> to ….</li>
+</ul>
+<p>To <code>git add</code>, there are three ways in this case. The first one <em>add screenshots/</em> only, and the other two <em>add all</em>.</p>
+<pre class="r"><code>git add screenshots/
+
+git add -A
+
+git add .</code></pre>
+<p>Check the status again</p>
+<pre class="r"><code>git status</code></pre>
+<p>Here is a screen shot of the process. After <code>git add</code>, the status shows four files in green font. These files are changes to be <em>committed</em>.</p>
+<div class="figure">
+<img src="/post/Learn_to_git_files/git%20add.png" style="width:100.0%" />
+
+</div>
+</div>
+<div id="commit-changes-in-repository-with-git-commit" class="section level1">
+<h1>Commit changes in repository with <code>git commit</code></h1>
+<p>The next step after <code>git add</code> that adds the changes is to <em>lock</em> the changes. This <em>locking</em> does not mean applying the changes, which is done using <code>git push</code>.</p>
+<p>To commit changes, type <code>git commit</code> and <code>-m</code> with a message inside quotes.</p>
+<pre class="r"><code>git commit -m &quot;Screen shots used in the final product are added&quot;</code></pre>
+<p>At this stage, the change is committed but it is still on the computer and not synchronized with github.com repository. To sync, type <code>git push</code></p>
+<pre class="r"><code>git push</code></pre>
+<p>Here is a screen shot of the process. After <code>git add</code>, there is <code>git commit</code> and finally <code>git push</code>. Now the files are synchronized with github.com</p>
+<div class="figure">
+<img src="/post/Learn_to_git_files/git%20commit%20and%20push.png" style="width:100.0%" />
+
+</div>
+</div>
+<div id="workflow" class="section level1">
+<h1>Workflow</h1>
+<p>So far, all we discussed was to set up a new repository / project, and commit changes. Other times, we have to <code>pull</code> changes others make in the project.</p>
+<p>The first thing one does when starting the day to work on a collaborative project is to change directory to the github repository/project using <code>cd</code> and request a <code>pull</code> of all the changes.</p>
+<pre class="r"><code>cd ~/documents/github/learn-how-to-github
+git pull</code></pre>
+<p>More details coming up…</p>
+</div>
+<div id="others" class="section level1">
+<h1>Others</h1>
+<p>To see all commands we can use and what they do, just type <code>git</code>.</p>
+</div>
+
+
+    
+
+    
+
+
+</article>
+
+
+
+        </div>
+
+        <aside class="col-12 col-lg-3 ml-auto blog-sidebar">
+    
+        
+
+
+<section>
+    <h4>Recent Posts</h4>
+    <ol class="list-unstyled">
+        
+        <li>
+            <a href="/2018/05/basics-of-github-through-command-line/">Basics of GitHub Through Command Line</a>
+        </li>
+        
+        <li>
+            <a href="/2018/05/perceptions-about-electricity-in-afghanistan-insights-from-the-survey-of-the-afghan-people/">Perceptions About Electricity in Afghanistan: Insights From the Survey of the Afghan People</a>
+        </li>
+        
+        <li>
+            <a href="/post/">Posts</a>
+        </li>
+        
+    </ol>
+</section>
+
+    
+    
+        <section>
+    
+        
+    
+        
+        <h4>Categories</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/categories/afghanistan">afghanistan</a>
+            
+            <a class="badge badge-primary" href="/categories/git">git</a>
+            
+        </p>
+        
+    
+        
+    
+        
+        <h4>Tags</h4>
+        <p>
+            
+            <a class="badge badge-primary" href="/tags/afghansurvey">afghansurvey</a>
+            
+            <a class="badge badge-primary" href="/tags/electricity">electricity</a>
+            
+            <a class="badge badge-primary" href="/tags/git">git</a>
+            
+        </p>
+        
+    
+</section>
+    
+</aside>
+
+      </div>
+    </div>
+    
+
+    
+      
+
+
+
+
+
+
+<footer class="blog-footer w-100">
+    <nav class="navbar navbar-light bg-light">
+        <p class="w-100 text-center">Hugo template made with ❤ by <a href="https://github.com/Xzya">Xzya</a>, inspired by <a href="https://github.com/alanorth/hugo-theme-bootstrap4-blog">hugo-theme-bootstrap4-blog</a></p>
+        <p class="w-100 text-center"><a href="#">Back to top</a></p>
+    </nav>
+</footer>
+
+    
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  </body>
+</html>

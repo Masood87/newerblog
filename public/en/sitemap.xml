@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/2018/05/basics-of-github-through-command-line/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/2018/05/perceptions-about-electricity-in-afghanistan-insights-from-the-survey-of-the-afghan-people/</loc>
     <lastmod>2018-05-10T00:00:00+00:00</lastmod>
   </url>
@@ -85,12 +90,24 @@
   </url>
   
   <url>
+    <loc>/tags/git/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/git/</loc>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/contact.de/</loc>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
     <xhtml:link
                 rel="alternate"
@@ -106,7 +123,7 @@
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2018-05-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-05-18T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
