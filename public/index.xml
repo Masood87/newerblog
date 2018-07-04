@@ -6,10 +6,19 @@
     <description>Recent content on Masood Sadat</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Collecting Tweets with R</title>
+      <link>/2018/06/collecting-tweets-with-r/</link>
+      <pubDate>Thu, 14 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/06/collecting-tweets-with-r/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Add a local folder to GitHub using the command line</title>
