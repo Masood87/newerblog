@@ -15,5 +15,5 @@ There seems to be a relatinship between weight (`wt`) and mileage (`mpg`) from t
 
 ```{r message=FALSE, warning=FALSE}
 library(ggplot2)
-# ggplot(mtcars, aes(wt, mpg)) + geom_point()
+ggplot(mtcars, aes(wt, mpg)) + geom_point()
 ```
